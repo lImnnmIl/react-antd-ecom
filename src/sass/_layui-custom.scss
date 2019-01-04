@@ -1,0 +1,192 @@
+@import "common";
+
+// 自定义导航
+.layui-bg-custom{background-color: $write!important; color: $black!important;
+    .layui-nav-item a {color: $black!important}
+    > i {color: $gray-line;font-size: 16px;vertical-align: middle;}
+    .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this {background-color: $red;}
+} 
+.layui-bg-custom .layui-nav-bar,
+.layui-bg-custom .layui-this:after,
+.layui-bg-custom .layui-nav-itemed:after{background-color: #93D1FF;display: none;}
+.layui-bg-custom .layui-nav-child dd.layui-this{background-color: #1E9FFF;}
+.layui-nav-tree.layui-bg-custom .layui-nav-title a,
+.layui-nav-tree.layui-bg-custom .layui-nav-title a:hover, 
+.layui-bg-custom .layui-nav-itemed>a{background-color: #007DDB !important;}
+.layui-bg-custom .layui-nav-item {
+    line-height: $small-fontSize * 4.8;
+}
+
+
+// 天蓝色按钮 
+.layui-btn-skyblue {
+    background-color: $skyblue;
+}
+
+// 蓝色按钮 
+.layui-btn-blue {
+    background-color: $blue;
+}
+// 黄色按钮
+.layui-btn-yellow {
+    background-color: $yellow;
+    color: $write;
+}
+// 灰色按钮
+.layui-btn-gray {
+    background-color: $pos-gray;
+    color: $black;
+    &:hover {
+        color: $black;
+    }
+}
+// 红色按钮
+.layui-btn-red {
+    background-color: $red;
+}
+// 橙色按钮
+.layui-btn-org {
+    background-color: $org;
+}
+// 亮橙色
+.layui-btn-orgLight {
+    background-color: $org-light;
+}
+// 小按钮
+.layui-btn-sm {
+    line-height: 28px;
+}
+.layui-border-red {
+    color: $red !important;
+    border-color: $red !important;
+    &:hover {
+        border-color: $red !important;
+    }
+}
+.layui-border-skyblue {
+    color: $skyblue !important;
+    border-color: $skyblue !important;
+    &:hover {
+        border-color: $skyblue !important;
+    }
+}
+.layui-border-blue {
+    color: $blue !important;
+    border-color: $blue !important;
+    &:hover {
+        border-color: $blue !important;
+    }
+}
+
+
+// 自定义蓝色简介tab栏
+
+.layui-tab-custom-blue > .layui-tab-title .layui-this{color: $blue;}
+.layui-tab-custom-blue > .layui-tab-title .layui-this:after
+,.layui-tab-custom-blue > .layui-tab-more li.layui-this:after{border: none; border-radius: 0; border-bottom: 3px solid $blue;}
+.layui-tab-custom-blue[overflow] > .layui-tab-title .layui-this:after{top: -1px;}
+.layui-tab-custom-blue > .layui-tab-title {
+    height: auto;
+    padding: 9px 0 6px;
+    li {
+        font-size: $small-fontSize * 2 ;
+        padding: 0 15px;
+        margin: 0 15px;
+        position: relative;
+        line-height: 1.6;
+        span {
+            font-size: $small-fontSize * 1.5;
+            vertical-align: baseline;
+        }
+        &:last-child::before {
+            border: 0 none;
+            width: 0;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            right: -15px;
+            background-color: $border-gray;
+            top: 8px;
+            width: 2px;
+            height: 22px;
+        }
+    }
+    .layui-this:after {
+        top: -2px;
+    }
+}
+
+// 自定义红橙简介tab栏
+
+.layui-tab-custom-ro > .layui-tab-title .layui-this{color: $red;}
+.layui-tab-custom-ro > .layui-tab-title .layui-this:after
+,.layui-tab-custom-ro > .layui-tab-more li.layui-this:after{border: none; border-radius: 0; border-bottom: 2px solid $org-light;}
+.layui-tab-custom-ro[overflow] > .layui-tab-title .layui-this:after{top: -1px;}
+.layui-tab-custom-ro > .layui-tab-title {
+    height: auto;
+    padding: 10px 0 0;
+    li {
+        font-size: $small-fontSize * 1.5;
+        padding: 0 15px;
+        margin: 0 15px;
+        position: relative;
+        span {
+            font-size: $small-fontSize * 1.5;
+            vertical-align: baseline;
+        }
+        &::before {
+            content: '';
+            width: 2px;
+            background-color: $border-gray;
+            height: 28px;
+            position: absolute;
+            top: 6px;
+            right: -16px;
+            bottom: 0;
+        }
+        &:last-child::before {
+            width: 0;
+        }
+        &:nth-last-of-type(1)::before {
+            width: 0;
+        }
+    }
+}
+
+
+// 搜索条件
+.layer-form-search {
+    padding: 12px 30px 0;
+    .layui-input {
+        height: 30px;
+        line-height: 30px;
+    }
+    .layui-form-label {
+        width: auto;
+        padding: 5px 10px;
+    }
+    .layui-inline {
+        margin: 0;
+        .layui-input-block {
+            margin-left: auto;
+            .layui-input-inline {
+                position: relative;
+                .date-logo {
+                    position: absolute;
+                    right: 8px;
+                    top: 6px;
+                    font-size: $small-fontSize * 1.6;
+                }
+            }
+        }
+    }
+    .layui-btn {
+        line-height: 30px;
+        height: 30px;
+    }
+    .layui-form-mid {
+        padding: 4px 0 !important;
+    }
+    margin-bottom: 6px;
+}

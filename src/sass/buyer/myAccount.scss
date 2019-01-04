@@ -1,0 +1,265 @@
+@import "../assembly";
+
+
+.eye { // 资金是否可见
+    @include img-adr(middle,top,6px);
+    @extend .point;
+}
+.assetDetail-logo { // 资金明细
+    @include img-adr(middle,right,0);
+}
+
+
+.myAccount {
+    .price-msg {
+        border-right: 1px solid $border-gray;
+        padding: 0 32px 0;
+        &:last-child {
+            border: 0 none;
+        }
+        h4 {
+            padding: 10px 0 0;
+            font-size: $small-fontSize * 1.2;
+            line-height: 1.6;
+            color: $pos-gray;
+        }
+        p {
+            font-size: $small-fontSize * 3;
+            line-height: 1.3;
+            color: $red;
+            @extend .over;
+            span {
+                display: inline-block;
+                max-width: 280px;
+                @extend .over;
+            }
+            i {
+                font-size: $small-fontSize * 1.2;
+                margin-left: 20px;
+                color: $black;
+                vertical-align: super;
+            }
+        }
+        .btn {
+            line-height: 1.6;
+            color: $red;
+            text-align: right;
+            @extend .over;
+            span {
+                color: $skyblue;
+                font-size: $small-fontSize * 1.3;
+                margin-right: 10px;
+                @extend .point;
+            }
+        }
+        // .btn {
+        //     text-align: right;
+        //     .layui-btn {
+        //         min-width: 77px;
+        //         padding: 0 15px;
+        //         font-size: $small-fontSize * 1.3;
+        //     }
+        // }
+    }
+    .anything-body-assetDetail {
+        .assetDetail-num {
+            font-size: $small-fontSize * 1.3;
+            color: $pos-gray;
+            margin-right: 20px;
+        }
+        .layui-btn {
+            padding: 0 15px;
+        }
+        .choose-condition {
+            font-size: $small-fontSize * 1.3;
+            &>ul {
+                padding: 0 40px;
+                &>li {
+                    margin-bottom: 4px;
+                }
+            }
+            a {
+                width: 86px;
+                height: 29px;
+                display: inline-block;
+                line-height: 29px;
+                margin-right: 20px;
+                text-align: center;
+                color: $black;
+            }
+            .condition {
+                display: inline-block;
+                vertical-align: top;
+                position: relative;
+                width: 88%;
+                li {
+                    float: left;
+                    margin-bottom: 5px;
+                    a {
+                        width: auto;
+                        padding: 0 20px;
+                    }
+                }
+                .choose-this {
+                    a {
+                        color: $write;
+                        background-color: $yellow;
+                    }
+                }
+                .choose-time {
+                    font-size: $small-fontSize;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 0;
+                }
+            }
+        }
+        .assetDetail-list {
+            padding: 0 24px 40px;
+            .assetDetail-explain {
+                width: 34%;
+            }
+            .assetDetail-money {
+                width: 21%;
+                p {
+                    max-width: 175px;
+                    @extend .over;
+                }
+            }
+            .assetDetail-other {
+                width: 15%;
+                p {
+                    max-width: 148px;
+                    @extend .over;
+                }
+            }
+            .assetDetail-list-title {
+                background-color: $gray-less;
+                color: $gray666;
+                font-size: $small-fontSize * 1.3;
+                border: 1px solid $border-gray;
+                padding: 10px 0;
+                margin-bottom: 8px;
+                text-align: center;
+                div {
+                    float: left;
+                }
+            }
+            .assetDetail-list-content {
+                .assetDetail-list-detail {
+                    margin-bottom: 6px;
+                    border: 1px solid $border-gray;
+                    border-bottom: 0 none;
+                    .assetDetail-list-detali-top {
+                        background-color: $gray-less;
+                        padding: 5px 20px;
+                        font-size: $small-fontSize * 1.3;
+                        line-height: 2;
+                        color: $pos-gray;
+                        p {
+                            margin-right: 10px;
+                        }
+                    }
+                    .assetDetail-list-detali-bottom {
+                        font-size: $small-fontSize * 1.2;
+                        line-height: 1.6;
+                        color: $black;
+                        .assetDetail-explain {
+                            padding: 27px 30px;
+                            div {
+                                max-width: 320px;
+                                p{
+                                    text-align: left;
+                                    &:first-child {
+                                        text-align: center;
+                                        width: 25%;
+                                    }
+                                    width: 73%;
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                }
+                            }
+                        }
+                        .assetDetail-money {
+                            text-align: left;
+                            padding: 0 30px;
+                        }
+                        table {
+                            width: 100%;
+                            text-align: center;
+                            tr {
+                                border-bottom: 1px solid $border-gray;
+                                td {
+                                    border-right: 1px solid $border-gray;
+                                    padding: 0 10px;
+                                    &:last-child {
+                                        border: 0 none;
+                                    }
+                                    p {
+                                        font-size: $small-fontSize * 1.3;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.blue-notBtn {
+    .input-lis {
+        .layui-textarea {
+            resize: none;
+        }
+        .layui-form-item {
+            .layui-form-label {
+                width: 228px;
+                font-size: $small-fontSize * 1.3;
+            }
+            .layui-input-block {
+                margin-left: 228px;
+            }
+            .layui-input-inline {
+                width: 300px;
+            }
+            .layui-form-mid {
+                color: $yellow !important;
+                font-size: $small-fontSize * 1.2;
+                .layui-layer-ico {
+                    width: 32px;
+                    height: 32px;
+                    left: 0;
+                    top: 1px;
+                }
+            }
+            #choice_imgFunds,#choice_imgAcc {
+                border: 1px solid #eee;
+            }
+            .btn {
+                padding-top: 20px;
+                .layui-btn {
+                    margin-right: 20px;
+                    height: 36px;
+                    line-height: 34px;
+                    font-size: $small-fontSize * 1.4;
+                    padding: 0 15px;
+                    min-width: 98px;
+                }
+            }
+            .btns {
+                .layui-btn {
+                    margin-right: 20px;
+                    height: 36px;
+                    line-height: 34px;
+                    font-size: $small-fontSize * 1.4;
+                    padding: 0 15px;
+                    min-width: 98px;
+                }
+            }
+        }
+    }
+    
+}

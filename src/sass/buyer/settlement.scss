@@ -1,0 +1,166 @@
+@import "../assembly";
+
+
+
+.main {
+    background-color: $write;
+    min-height: 600px;
+}
+// header部分变更
+#header{
+    .nav_dir {
+        .home,.car {
+            display: inline-block;
+        }
+    }
+    .al-login {
+        display: inline-block;
+    }
+} 
+h2 {
+    font-size: $small-fontSize * 1.8;
+    padding: 20px 20px 30px;
+    font-weight: 600;
+    .returnCart {
+        font-size: $small-fontSize * 1.2;
+        font-weight: 100;
+        padding: 0 20px;
+    }
+}
+.balance {
+    table {
+        width: 100%;
+        background-color: #fff;
+        font-size: $small-fontSize * 1.3;
+        border: 1px solid $border-gray;
+        margin-bottom: 32px;
+        .long {
+            width: 50%;
+        }
+        .midd {
+            width: 15%;
+        }
+        .shot {
+            width: 16.6%;
+            p {
+                max-width: 222px;
+                @extend .over;
+            }
+        }
+        th,td {
+            text-align: center
+        }
+        th {
+            background-color: $gray-less;
+            color: $black;
+            padding: 10px 10px;
+            &:last-child {
+                border-right: 1px solid $border-gray; 
+            }
+        }
+        td {
+            padding: 20px 10px;
+        }
+        tbody {
+            tr {
+                td {
+                    border: 1px solid $border-gray {
+                        top: 0;
+                    };
+                }
+            }
+        }
+        tfoot {
+            td {
+                text-align: right;
+                padding: 30px;
+                span {
+                    font-size: $small-fontSize * 1.8;
+                    margin-right: 60px;
+                    margin-left: 20px;
+                }
+            }
+            .product-msg {
+                padding: 10px 30px;
+                p {
+                    padding: 8px 0;
+                    span {
+                        margin: 0;
+                        padding-left: 20px;
+                        text-align: right;
+                        &:last-child {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+        .img {
+            position: relative;
+            overflow: hidden;
+            margin: 10px 0;
+            width: 20%;
+            max-width: 115px;
+            img {
+                width: 100%;
+            }
+            p {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                span {
+                    font-size: $small-fontSize * 1.1;
+                    line-height: 20px;
+                    text-align: center!important;
+                }
+            }
+        }
+        .goods-msg {
+            padding: 10px 0 10px 8px;
+            width: 76%;
+            text-align: left;
+            line-height: 2;
+            h4 {
+                font-size: $small-fontSize * 1.4;
+                span {
+                    display: inline-block;
+                    &:first-child {
+                        max-width: 400px;
+                        @extend .over;
+                    }
+                }
+            }
+            p {
+                font-size: $small-fontSize * 1.2;
+                color: $pos-gray;
+                max-width: 400px;
+                @extend .over;
+                span {
+                    &:last-child {
+                        color: $black;
+                        max-width: 92px;
+                    }
+                }
+            }
+        }
+        .serviceMsg {
+            .layui-icon-tips {
+                font-size: $small-fontSize * 1.6
+            }
+            p {
+                text-align: left;
+                line-height: 1.6;
+            }
+        }
+    }
+    .settleBtn {
+        padding: 40px 60px;
+        text-align: right;
+        .layui-btn {
+            padding: 0 20px;
+            border-radius: 8px;
+            font-size: $small-fontSize * 1.4;
+        }
+    }
+}

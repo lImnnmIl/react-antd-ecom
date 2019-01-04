@@ -1,0 +1,56 @@
+@import "./common";
+
+.account-content {
+    margin-top: 10px;
+    padding-bottom: 30px;
+    background-color: $write;
+    .layui-tab-content {
+        display: none;
+        padding: 10px 10px 0;
+    }
+    .search-account {
+        height: 32px;
+        border: 1px solid $border-gray;
+        background-color: $gray;
+        font-size: $small-fontSize * 1.1;
+        position: relative;
+        margin-right: 30px;
+        .search-more {
+            @extend .point;
+            border-left: 1px solid $ddd-gray;
+            height: 32px;
+            line-height: 30px;
+            text-align: center;
+            .layui-icon {
+                font-size: $small-fontSize * 1.3;
+                margin-left: 4px;
+            }
+        }
+        .layui-input {
+            border: 0 none;
+            height: 30px;
+            background-color: $gray;
+        }
+        .layui-icon-search {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: $small-fontSize * 1.6;
+            height: 30px;
+            line-height: 30px;
+            width: 33px;
+            text-align: center;
+            @extend .point;
+        }
+        p {
+            position: absolute;
+            right: 252px;
+            font-size: $small-fontSize * 1.3;
+            line-height: 32px;
+            top: 0;
+        }
+    }
+    .contract-Msg {
+        padding: 3px 28px 0;
+    }
+}

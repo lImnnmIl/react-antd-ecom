@@ -1,0 +1,231 @@
+@import "../assembly";
+
+
+
+.main {
+    background-color: $write;
+}
+
+.cart-header {
+    padding: 20px 30px;
+    .btns {
+        text-align: right;
+        .layui-btn {
+            padding: 0 20px;
+            font-size: $small-fontSize * 1.3;
+        }
+    }
+}
+
+// 购物车列表
+table {
+    width: 100%;
+    font-size: $small-fontSize * 1.3;
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 24px;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    .limit-wt {
+        width: 14%;
+    }
+    .midd-wt {
+        width: 12%;
+        p {
+            max-width: 128px;
+            span {
+                max-width: 74px;
+            }
+        }
+        div {
+            max-width: 128px;
+        }
+        .layui-form-select {
+            width: 88%;
+            margin: 0 auto;
+        }
+    }
+    .shot-wt {
+        width: 7.6%;
+        p {
+            max-width: 74px;
+        }
+    }
+    .his-price {
+        text-decoration: line-through;
+    }
+    .cart-head {
+        border: 1px solid $border-gray;
+        font-size: $small-fontSize * 1.6;
+        line-height: 2;
+        height:  $small-fontSize * 1.6 * 2;
+        // li {
+        //     font-size: $small-fontSize * 1.6;
+        //     line-height: 2;
+        //     height:  $small-fontSize * 1.6 * 2;
+        //     float: left;
+        // }
+    }
+    .cart-body {
+        color: $pos-gray;
+        .max-w {
+            max-width: 88px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .img {
+            position: relative;
+            overflow: hidden;
+            max-width: 115px;
+            margin: 0 auto;
+            img {
+                width: 100%;
+            }
+            p {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                span {
+                    font-size: $small-fontSize;
+                    line-height: 20px;
+                    text-align: center!important;
+                }
+            }
+            .saleName {
+                position: absolute;
+                background-color: rgba($color: #000000, $alpha: 0.4);
+                top: 0;
+                left: 0;
+                padding: 4px 5px;
+                font-size: $small-fontSize * 1.2;
+                line-height: 1;
+                color: $red;
+                font-weight: 100;
+            }
+        }
+        tr {
+            border: 1px solid $border-gray;
+            margin-bottom: 14px;
+            .specif,.material {
+                font-size: $small-fontSize;
+                position: relative;
+                label {
+                    position: absolute;
+                    bottom: -24px;
+                    color: $red;
+                    left: 10px;
+                }
+            }
+            td {
+                padding: 10px;
+                p {
+                    span {
+                        &:first-child {
+                            text-align: right;
+                        }
+                        text-align: left;
+                    }
+                }
+                .layui-icon {
+                    margin-right: 10px;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+                .layui-icon-delete {
+                    font-size: $small-fontSize * 2.2;
+                }
+                .layui-icon-add-1 {
+                    font-size: $small-fontSize * 2;
+                }
+                .price-msg {
+                    padding: 0 15px;
+                    font-size: $small-fontSize * 1.2;
+                    line-height: 26px;
+                    height: 26px;
+                    background-color: $li-green;
+                    color: $write;
+                    @extend .over;
+                    max-width: 136px;
+                    margin: 0 auto;
+                }
+                .price-up{
+                    background-color: red;
+                }
+                .trans-num {
+                    border: 1px solid $border-gray;
+                    min-width: 102px;
+                    height: 38px;
+                    line-height: 36px;
+                    @extend .no-chose;
+                    .trans-num-l, .trans-num-r{
+                        font-size: $small-fontSize * 1.6;
+                        @extend .point;
+                    }
+                    .trans-num-c {
+                        border: 1px solid $border-gray{
+                            top: 0;
+                            bottom: 0;
+                        };
+                        font-size: $small-fontSize * 1.4;
+                        .car-lading-num{
+                            width: 61px;
+                            border: 0 none;
+                            padding: 0;
+                            height: 36px;
+                            text-align:center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#annotation {
+    margin-bottom: 24px;
+    p {
+        padding: 10px 30px;
+        color: $red;
+        font-size: $small-fontSize * 1.4;
+        text-align: left;
+    }
+}
+
+.cart-footer {
+    text-align: right;
+    p {
+        padding: 8px 30px;
+        font-size: $small-fontSize * 1.8;
+        &:last-of-type {
+            padding-bottom: 30px; 
+        }
+        span {
+            &:last-child {
+                padding: 0 40px 0 20px;
+            }
+        }
+    }
+    .btn {
+        padding-right: 90px;
+        .layui-btn {
+            padding: 0 20px;
+            font-size: $small-fontSize * 1.3;
+        }
+    }
+    
+}
+
+
+// header部分变更
+#header{
+    .nav_dir {
+        .home,.car {
+            display: inline-block;
+        }
+    }
+    .al-login {
+        display: inline-block;
+    }
+} 

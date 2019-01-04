@@ -1,0 +1,37 @@
+@import "../assembly";
+
+.enterlOgistics {
+    background-color: $write;
+    min-height: 800px;
+    h2 {
+        font-size: $small-fontSize * 1.8;
+        line-height: 1.6;
+        padding: 10px 30px;
+        color: $black;
+        border-bottom: 1px solid $border-gray;
+    }
+    .enterlOgistics-info {
+        padding: 30px 136px 0 50px;
+        .enterlOgistics-msg {
+            background-color: #e9f3ff;
+            border: 1px solid #cee3f6;
+            padding: 18px 20px; 
+            font-size: $small-fontSize * 1.4;
+            color: $skyblue;
+            border-radius: 8px;
+            .layui-icon-tips {
+                color: $yellow;
+                font-size: $small-fontSize * 1.8;
+                vertical-align: middle;
+                margin-right: 20px;
+            }
+        }
+        .btn {
+            padding-top: 30px;
+            .layui-btn {
+                padding: 0 27px;
+                font-size: $small-fontSize * 1.3;
+            }
+        }
+    }
+}

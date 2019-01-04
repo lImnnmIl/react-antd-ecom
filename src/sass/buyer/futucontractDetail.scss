@@ -1,0 +1,199 @@
+@import "../assembly";
+
+
+// header部分变更
+#header{
+    .nav_dir {
+        .home,.car {
+            display: inline-block;
+        }
+    }
+    .al-login {
+        display: inline-block;
+    }
+} 
+
+.main {
+    background-color: $write;
+    padding: 0;
+    .partition {
+        height: 18px;
+        background-color: $gray;
+    }
+    .banxin {
+        padding: 52px 0 175px;
+        h2 {
+            font-weight: 600;
+            span {
+                font-weight: normal;
+            }
+            font-size: $small-fontSize * 1.6;
+            padding: 15px 40px 15px 20px;
+        }
+        .goodsDetail {
+            .goodsMsg {
+                table {
+                    width: 100%;
+                    background-color: #fff;
+                    font-size: $small-fontSize * 1.3;
+                    border: 1px solid $border-gray;
+                    margin-bottom: 32px;
+                    th,td {
+                        text-align: center;
+                    }
+                    tr {
+                        border-bottom: 1px solid $border-gray;
+                        &:last-child {
+                            border: 0 none;
+                        }
+                    }
+                    .long {
+                        width: 20%;
+                        p{
+                            max-width: 172px;
+                        }
+                        span {
+                            max-width: 92px;
+                        }
+                    }
+                    .midd {
+                        width: 16%;
+                        p{
+                            max-width: 210px;
+                        }
+                    }
+                    .shot {
+                        width: 11%;
+                        p{
+                            max-width: 140px;
+                        }
+                    }
+                    .layui-icon {
+                        font-size: $small-fontSize * 1.8;
+                        @extend .point;
+                    }
+                    .trans-num {
+                        border: 1px solid $border-gray;
+                        height: 32px;
+                        line-height: 30px;
+                        .trans-num-l {
+                            border-right: 1px solid $border-gray;
+                            @extend .point;
+                        }
+                        .trans-num-r {
+                            border-left: 1px solid $border-gray;
+                            @extend .point;
+                        }
+                    }
+                    th {
+                        background-color: $gray-less;
+                        color: $pos-gray;
+                        padding: 10px 10px;
+                    }
+                    td {
+                        padding: 20px 10px;
+                        p {
+                            @extend .over;
+                            span {
+                                text-align: left;
+                                line-height: 1.6;
+                                @extend .over;
+                            }
+                        }
+                        .img {
+                            position: relative;
+                            overflow: hidden;
+                            margin: 10px 0;
+                            max-width: 115px;
+                            img {
+                                width: 100%;
+                            }
+                            p {
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                span {
+                                    font-size: $small-fontSize * 1.1;
+                                    line-height: 17px;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+                .price {
+                    text-align: right;
+                    padding: 20px;
+                    font-size: $small-fontSize * 1.4;
+                    line-height: 1.6;
+                    span {
+                        font-size: $small-fontSize * 1.8;
+                        margin-right: 30px;
+                    }
+                }
+                .btn {
+                    text-align: right;
+                    padding: 0 50px;
+                    .layui-btn {
+                        height: 32px;
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+        .billsDetail {
+            .billsMsg {
+                .billsMsg-table {
+                    border: 1px solid $border-gray;
+                    .billsMsg-thead {
+                        padding: 0 20px;
+                        background-color: $gray-less;
+                    }
+                    .billsMsg-tbody {
+                        padding: 0 20px;
+                    }
+                }
+                table {
+                    width: 100%;
+                    font-size: $small-fontSize * 1.3;
+                    tr {
+                        border-bottom: 1px solid $border-gray;
+                        &:last-child {
+                            border: 0 none;
+                        }
+                    }
+                    th,td {
+                        text-align: center;
+                        width: 14%;
+                        p {
+                            max-width: 184px;
+                            @extend .over;
+                            span {
+                                max-width: 120px;
+                                @extend .over;
+                            }
+                        }
+                    }
+                    th {
+                        color: $pos-gray;
+                        padding: 10px 10px;
+                    }
+                    td {
+                        padding: 20px 10px;
+                        p {
+                            span {
+                                &:first-child {
+                                    text-align: right;
+                                }
+                                text-align: left;
+                                line-height: 1.6;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

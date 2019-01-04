@@ -1,0 +1,209 @@
+@import "../assembly";
+
+
+
+.main {
+    background-color: $write;
+}
+
+.cart-header {
+    padding: 20px 30px;
+    .check {
+        padding-top: 8px;
+    }
+    .btns {
+        text-align: right;
+        .layui-btn {
+            border-radius: 8px;
+        }
+    }
+}
+
+// 购物车列表
+table {
+    width: 100%;
+    font-size: $small-fontSize * 1.3;
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 24px;
+    .cart-long {
+        width: 14%;
+    }
+    .cart-midd {
+        width: 12%;
+        word-wrap: break-word;
+        p {
+            max-width: 128px;
+            span {
+                max-width: 74px;
+            }
+        }
+    }
+    .cart-shot {
+        width: 7.6%;
+        word-wrap: break-word;
+        p {
+            max-width: 74px;
+        }
+    }
+    .his-price {
+        text-decoration: line-through;
+    }
+    .cart-head {
+        border: 1px solid $border-gray;
+        font-size: $small-fontSize * 1.6;
+        line-height: 2;
+        height:  $small-fontSize * 1.6 * 2;
+        // li {
+        //     font-size: $small-fontSize * 1.6;
+        //     line-height: 2;
+        //     height:  $small-fontSize * 1.6 * 2;
+        //     float: left;
+        // }
+    }
+    .cart-body {
+        color: $pos-gray;
+        .max-w {
+            max-width: 88px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .img {
+            position: relative;
+            overflow: hidden;
+            max-width: 115px;
+            img {
+                width: 100%;
+            }
+            p {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                span {
+                    font-size: $small-fontSize;
+                    line-height: 17px;
+                    text-align: center!important;
+                }
+            }
+        }
+        tr {
+            border: 1px solid $border-gray;
+            margin-bottom: 14px;
+            th {
+                &:first-child {
+                    padding-left: 16px;
+                }
+            }
+            td {
+                padding: 10px;
+                p {
+                    span {
+                        &:first-child {
+                            text-align: right;
+                        }
+                        text-align: left;
+                    }
+                }
+                .layui-icon-delete {
+                    font-size: $small-fontSize * 3;
+                }
+                .price-msg {
+                    padding: 0 15px;
+                    font-size: $small-fontSize * 1.2;
+                    line-height: 26px;
+                    height: 26px;
+                    background-color: $li-green;
+                    color: $write;
+                    @extend .over;
+                    max-width: 136px;
+                    margin: 0 auto;
+                }
+                .price-up {
+                    background-color:red;
+                }
+                .trans-num {
+                    border: 1px solid $border-gray;
+                    min-width: 102px;
+                    height: 38px;
+                    line-height: 36px;
+                    .trans-num-l, .trans-num-r{
+                        font-size: $small-fontSize * 1.6;
+                        @extend .point;
+                        @extend .no-chose;
+                    }
+                    .trans-num-c {
+                        border: 1px solid $border-gray{
+                            top: 0;
+                            bottom: 0;
+                        };
+                        font-size: $small-fontSize * 1.4;
+                        .car-lading-num{
+                            width: 62px;
+                            border: 0 none;
+                            height: 36px;
+                            text-align:center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.cart-footer {
+    margin-top: 42px;
+    padding: 0 0 0 20px;
+    background-color: $gray;
+    font-size: $small-fontSize * 1.6;
+    height: 60px;
+    line-height: 58px;
+    border: 1px solid $border-gray;
+    a {
+        color: $pos-gray;
+    }
+    .layui-col-xs2{
+        font-size: $small-fontSize * 1.4;
+         .red{
+             color: red !important;
+         }
+    }
+    .trans-msg {
+        text-align: right;
+        span {
+            // display: inline-block;
+            margin-right: 36px;
+            i {
+                &:only-child {
+                    padding: 0 10px;
+                }
+            }
+            .big-price {
+                font-size: $small-fontSize * 2.4;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+    .btn {
+        text-align: right;
+        .layui-btn {
+            height: 58px;
+            background-color: $border-gray;
+            font-size: 27px;
+            color: $write;
+            width: 184px;
+            vertical-align: baseline;
+        }
+    }
+}
+
+
+//  header显示
+#header{
+    .login-re,.buy {
+        display: none;
+    }
+} 

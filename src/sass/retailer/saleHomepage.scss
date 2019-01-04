@@ -1,0 +1,451 @@
+@import "../assembly";
+
+// 主体部分
+.main {
+    .left {
+        .user {
+            background-color: $write;
+            margin-bottom: 10px;
+            .user-change {
+                padding: 20px 16px 7px;
+                .loging {
+                    img {
+                        width: 100%;
+                    }
+                    .term {
+                        padding-left: 10px;
+                        p {
+                            font-size: $small-fontSize * 1.3;
+                            line-height: 1.6;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                .btn {
+                    padding: 6px;
+                    text-align: center;
+                    a {
+                        margin-right: $small-width * 0.5;
+                        &:last-child & {
+                            margin-right: 0;
+                        }
+                        .layui-btn {
+                            margin: 9px 0;
+                            width: $small-width * 5.6;
+                            border-radius: 6px;
+                            font-size: $small-fontSize * 1.3;
+                        }
+                    }
+                }
+                .notice {
+                    .title {
+                        border-bottom: 1px solid $yellow;
+                        padding: 0 12px 0 8px;
+                        font-size: 16px;
+                        line-height: 1.6;
+                        i {
+                            float: right;
+                            font-size: 12px;
+                            color: #868686;
+                            margin-top: 4px;
+                        }
+                    }
+                    .content {
+                        max-height: 72px;
+                        li {
+                            font-size: $small-fontSize;
+                            line-height: 2;
+                            padding: 0 10px;
+                        }
+                        .notice-tit {
+                            @extend .over;
+                        }
+                        .time {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+            .fun {
+                div {
+                    border: 1px solid $border-gray {
+                        bottom: 0px;
+                        left: 0px;
+                        };
+                    &:last-child {
+                        border-right: 0 none;
+                    }
+                    a {
+                        display: block;
+                        padding: 6px 0;
+                        text-align: center;
+                        p {
+                            font-size: $small-fontSize * 1.2;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .recmd {
+            padding: 10px 0 12px;
+            background-color: $write;
+            h4 {
+                padding: 0 22px;
+                font-size: $small-fontSize * 1.6;
+                line-height: 1.6;
+                color: $black;
+            }
+        }
+    }
+    .right {
+        padding-left: $small-width * 2;
+        .subject {
+            .count {
+                position: relative;
+                .count-down {
+                    position: absolute;
+                    width: 73%;
+                    height: 18%;
+                    bottom: 8%;
+                    left: 12.5%;
+                    span {
+                        height: 100%;
+                        font-size: $small-fontSize * 2.7;
+                        line-height: 32px;
+                        text-align: center;
+                        color: $red;
+                        font-family: "楷体";
+                        font-weight: bold;
+                    }
+                }
+            }
+            div {
+                img {
+                    width: 100%;
+                }
+                .hot-list {
+                    background-color: $write;
+                    > div {
+                        border-right: 1px solid $border-gray;
+                        &:last-child {
+                            border:  0 none;
+                        }
+                    }
+                }
+            }
+        }
+        .commodity-options {
+            margin-top: 10px;
+            background-color: $write;
+            .layui-tab-content {
+                padding: 4px 0 0;
+                @include row-chose;
+            }
+            .chose-options {
+                padding-left: 20px;
+                a {
+                    display: inline-block;
+                    padding: 0 0 0 8px;
+                    background-color: $gray;
+                    border: 1px solid $border-gray;
+                    height: 24px;
+                    line-height: 24px;
+                    color: $pos-gray;
+                    border-radius: 6px;
+                    font-size: $small-fontSize * 1.2;
+                    span {
+                        display: inline-block;
+                        .layui-icon-close {
+                            color: $red !important;
+                        }
+                    }
+                }
+            }
+        }
+        .goods-msg {
+            margin-top: 10px;
+            padding: 10px 0 40px;
+            background-color: $write;
+            .sort-way {
+                padding: 0 27px;
+                .sort-way-chose {
+                    border: 1px solid $border-gray;
+                    width: 90%;
+                    height: 30px;
+                    line-height: 28px;
+                    span {
+                        background-color: $gray;
+                        color: $black;
+                        font-size: $small-fontSize * 1.4;
+                        text-align: center;
+                        @extend .point;
+                        &:last-child {
+                            height: 28px;
+                            color: $black;
+                            background-color: $write;
+                        }
+                        i {
+                            font-size: $small-fontSize * 1.3;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+                .search-all {
+                    padding-left: 30px;
+                    position: relative;
+                    .layui-input {
+                        line-height: 28px;
+                        height: 30px;
+                        border-radius: 32px;
+                        padding-left: 20px;
+                    }
+                    span {
+                        @extend .point;
+                        position: absolute;
+                        right: 16px;
+                        font-size: 20px;
+                        top: 4px;
+
+                    }
+                }
+                .num-msg {
+                    text-align: right;
+                    font-size: $small-fontSize * 1.3;
+                    height: 32px;
+                    line-height: 32px;
+                    span {
+                        color: $skyblue;
+                    }
+                }
+            }
+            .msg-body {
+                .spot-long {
+                    width: 16%;
+                    p {
+                        max-width: 150px;
+                        line-height: 2;
+                        span {
+                            display: inline-block;
+                            @extend .over;
+                        }
+                    }
+                    .futu-p {
+                        padding-left: 20px;
+                        text-align: left; 
+                        max-width: 150px;
+                    }
+                }
+                .futu-long {
+                    width: 14%;
+                    p {
+                        max-width: 135px;
+                        @extend .over;
+                        padding-left: 26px;
+                        text-align: left;
+                        // span {
+                        //     max-width: 198px;
+
+                        //     display: inline-block;
+                        // }
+                    }
+                }
+                .spot-midd {
+                    width: 13%;
+                    line-height: 2;
+                    p {
+                        max-width: 125px;
+                        span {
+                            max-width: 80px;
+                        }
+                    }
+                    .futu-p {
+                        max-width: 125px;
+                        padding-left: 16px;
+                        text-align: left; 
+                        @extend .over;
+                    }
+                }
+                .spot-shot {
+                    width: 9%;
+                    p {
+                        max-width: 82px;
+                    }
+                }
+                table {
+                    width: 100%;
+                    font-size: $small-fontSize * 1.3;
+                    text-align: center;
+                    line-height: 2;
+                    .max-wt {
+                        max-width: 78px;
+                        @extend .over;
+                    }
+                    .limit-wt {
+                        width: 152px;
+                    }
+                    thead {
+                        border-bottom: 1px solid $border-gray;
+                    }
+                    tr {
+                        padding: 0 16px;
+                        th {
+                            padding: 14px 10px;
+                        }
+                        td {
+                            padding: 10px 5px;
+                            p {
+                                position: relative;
+                                span {
+                                    text-align: right;
+                                    &:last-child {
+                                        text-align: left;
+                                    }
+                                }
+                                .now-price {
+                                    font-size: 15px;
+                                    font-weight: 600;
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 45px;
+                                }
+                            }
+                            .his-price {
+                                text-decoration: line-through;
+                            }
+                            .layui-btn {
+                                font-size: $small-fontSize * 1.4;
+                                border-radius: 6px;
+                                height: 28px;
+                            }
+                        }
+                        border-bottom: 1px solid $border-gray;
+                        &:last-child {
+                            border: 0 none;
+                        }
+                    }
+                }
+                .img {
+                    position: relative;
+                    overflow: hidden;
+                    width: 115px;
+                    // margin: 0 auto;
+                    margin-left: 30px;
+                    img {
+                        width: 100%;
+                    }
+                    .saleName {
+                        position: absolute;
+                        background-color: rgba($color: #000000, $alpha: 0.4);
+                        top: 0;
+                        left: 0;
+                        padding: 4px 5px;
+                        font-size: $small-fontSize * 1.2;
+                        line-height: 1;
+                        color: $red;
+                        font-weight: 100;
+                    }
+                    p {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        span {
+                            font-size: $small-fontSize * 1.1;
+                            line-height: 16px;
+                            text-align: center!important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+body .blue-smallBtn {
+    .layui-layer-content {
+        overflow: inherit;
+    }
+    .input-lis {
+        .layui-textarea {
+            resize: none;
+        }
+        .layui-form-item {
+            .layui-form-label {
+                width: 228px;
+                font-size: $small-fontSize * 1.3;
+            }
+            .layui-input-block {
+                margin-left: 228px;
+            }
+            .layui-input-inline {
+                width: 300px;
+            }
+            .layui-form-mid {
+                color: $yellow !important;
+                font-size: $small-fontSize * 1.2;
+                .layui-layer-ico {
+                    width: 32px;
+                    height: 32px;
+                    left: 0;
+                    top: 1px;
+                }
+            }
+            #choice_imgFunds,#choice_imgAcc {
+                border: 1px solid #eee;
+            }
+            .btn {
+                padding-top: 20px;
+                .layui-btn {
+                    margin-right: 20px;
+                    height: 36px;
+                    line-height: 34px;
+                    font-size: $small-fontSize * 1.4;
+                    padding: 0 15px;
+                    min-width: 98px;
+                }
+            }
+            .btns {
+                .layui-btn {
+                    margin-right: 20px;
+                    height: 36px;
+                    line-height: 34px;
+                    font-size: $small-fontSize * 1.4;
+                    padding: 0 15px;
+                    min-width: 98px;
+                }
+            }
+        }
+        .explain {
+            .layui-input-block {
+                padding: 0;
+                .layui-form-mid {
+                    padding: 0 !important;
+                    margin-right: 165px;
+                }
+
+            }
+        }
+    }
+    
+}
+
+// header部分变更
+#header{
+    .nav_dir {
+        .buy,.car {
+            display: inline-block;
+        }
+    }
+}
+// aside部分修改
+
+.banxin {
+    .aside {
+        display: block;
+        .person {
+            display: none;
+        }
+    }
+}

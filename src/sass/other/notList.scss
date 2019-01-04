@@ -1,0 +1,66 @@
+@import "../layui-custom";
+
+
+// header部分变更
+#header{
+    .nav_dir {
+        .buy,.car {
+            display: inline-block;
+        }
+    }
+}
+.main {
+    min-height: 800px;
+}
+.banxin {
+    width: 1080px !important;
+}
+.order_page{
+    padding: 20px 40px;
+    text-align: center;
+}
+.account-title {
+    background-color: $write;
+    font-size: $small-fontSize * 1.8;
+    line-height: 1.6;
+    padding: 10px 30px;
+    color: $black;
+    margin-bottom: 20px;
+    .layui-btn {
+        width: 69px;
+        font-size: $small-fontSize * 1.2;
+    }
+}
+.notLis {
+    padding: 20px 32px 48px;
+    background-color: $write;
+    .head {
+        background-color: $gray;
+        margin-bottom: 20px;
+        text-align: center;
+        color: $pos-gray;
+        font-size: $small-fontSize * 1.4;
+        padding: 12px 20px;
+    }
+    .content {
+        border: 1px solid $border-gray;
+        padding: 0 20px;
+        p {
+            font-size: $small-fontSize * 1.2;
+            padding: 13px 0;
+            border-bottom: 1px solid $border-gray;
+            &:last-child {
+                border: 0 none;
+            }
+            span {
+                text-align: center;
+                &:first-child {
+                    max-width: 400px;
+                    text-align: left;
+                    padding-left: 40px;
+                    @extend .over;
+                }
+            }
+        }
+    }
+}

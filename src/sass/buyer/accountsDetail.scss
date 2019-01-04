@@ -1,0 +1,58 @@
+@import "../assembly";
+.account-content {
+    .account-billMsg {
+        .account-billMsg-title {
+            background-color: $gray;
+            color: $pos-gray;
+            font-size: $small-fontSize * 1.3;
+            border: 1px solid $border-gray;
+            padding: 14px 0;
+            margin-bottom: 8px;
+            div {
+                padding-left: 16px;
+            }
+        }
+        .account-billMsg-content {
+            .account-billMsg-row {
+                border: 1px solid $border-gray;
+                padding: 10px 0;
+                color: $black;
+                margin-bottom: 6px;
+                .account-billMsg-col-l {
+                    width: 33%;
+                }
+                .account-billMsg-col-r {
+                    width: 66%;
+                    .account-billMsg-col-r-row {
+                        border-bottom: 1px solid $border-gray;
+                        &:last-child {
+                            border: 0 none;
+                        }
+                    }
+                }
+                .goods-msg {
+                    padding-left: 16px;
+                    padding-top: 8px;
+                    height: 264px;
+                    border-left: 1px solid $border-gray;
+                    // &:last-child {
+                    //     height: 252px;
+                    //     margin-top: 6px;
+                    // }
+                    &:only-child {
+                        border: 0 none;
+                    }
+                    p {
+                        span {
+                            font-size: $small-fontSize * 1.3;
+                            line-height: 2;
+                            max-width: 258px;
+                            display: inline-block;
+                            @extend .over;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,368 @@
+
+@import "layui-custom";
+
+// logo定位
+.my-ct {
+    @include img-adr(text-top,right,10px);
+}
+.business {
+    @include img-adr(text-top,right,10px);
+}
+.shopcar-ye {
+    @include img-adr(text-top,right,10px);
+}
+.futushopcar-ye { // 购物车
+    @include img-adr(text-top,right,10px);
+}
+.homepage { // 主页
+    @include img-adr(text-top,right,10px);
+}
+.goods-stock { // 现货
+    @include img-adr(text-top,bottom,6px);
+}
+.bill-lading { // 提单
+    @include img-adr(text-top,bottom,6px);
+}
+.today-resc { // 今日资源
+    @include img-adr(text-top,bottom,6px);
+}
+.shopcar-re-l { // 购物车
+    @include img-adr(text-top,bottom,5px);
+}
+.shopcar-re-sm { // 购物车
+    @include img-adr(text-top,right,5px);
+}
+.shopcar-re-r { // 购物车
+    @include img-adr(text-top,right,15px);
+}
+.shopcar-ga-r { // 购物车
+    @include img-adr(text-top,right,15px);
+}
+.attention { // 我的关注
+    @include img-adr(text-top,bottom,10px);
+}
+.service { // 客服
+    @include img-adr(text-top,bottom,0);
+}
+.qr-code { // 二维码
+    @include img-adr(text-top,bottom,0);
+}
+.feedback { // 反馈
+    @include img-adr(text-top,bottom,0);
+}
+.advanced,.high-quality,.security,.resources { // 一体化服务
+    @include img-adr(sub,right,20px);
+}
+// header部分
+.header {
+    height: 48px;
+    line-height: 48px;
+    .al-login {
+        font-size: $small-fontSize * 1.6;
+        span {
+            margin-right: 15px;
+        }
+    }
+    .left-logo {
+        img {
+            width: 68%;
+        }
+    }
+    .right-nav > ul {
+        text-align: right;
+        li {
+            text-align: center;
+            position: relative;
+        }
+        .right-line {
+            &::after {
+                content: '';
+                position: absolute;
+                width: 2px;
+                height: 18px;
+                top: 16px;
+                right: -1px;
+                background-color: $gray-line;
+            }
+        }
+    }
+    a {
+        font-size: $small-fontSize * 1.6;
+        .shop-num {
+            position: relative;
+            &::before {
+                content: attr(data-shopnum);
+                position: absolute;
+                background-color: $red;
+                color: $write;
+                border-radius: 8px;
+                width: 14px;
+                height: 14px;
+                line-height: 1.1;
+                font-size: $small-fontSize;
+                top: -5px;
+                right: -5px;
+            }
+        }
+    }
+}
+
+.banna {
+    height: 12px;
+    width: 100%;
+    @include img-route("images/banan.png");
+}
+
+// main位置划分
+.main {
+    background-color: $gray;
+    padding: 16px 0 62px 0;
+    .right {
+        padding-left: $small-width * 2;
+    }
+}
+// footer部分
+.footer {
+    background-color: $gray;
+    .footer-head {
+        background-color: $blue;
+        li {
+            color: $write;
+            font-size: $small-fontSize * 2;
+            line-height: 3;
+            text-align: center;
+        }
+    }
+    .footer-body {
+        background-color: $write;
+        text-align: center;
+        height: 178px;
+        ul {
+            display: inline-block;
+            li {
+                padding: 20px 60px 0;
+                &:last-child {
+                    border: 0 none;
+                }
+                position: relative;
+                dl {
+                    position: relative;
+                    &::after {
+                        content: '';
+                        width: 2px;
+                        height: 88px;
+                        background-color: $border-gray;
+                        position: absolute;
+                        right: -60px;
+                        top: 21px;
+                    }
+                }
+                &:last-child {
+                    position: relative;
+                    dl{
+                        text-align: left;
+                        &::after {
+                            width: 0;
+                        }
+                    }
+                    dt {
+                        color: $black;
+                    }
+                    dd {
+                        font-size: $small-fontSize * 2.1;
+                        color: $skyblue;
+                        span {
+                            font-size: $small-fontSize;
+                            color: $pos-gray;
+                            vertical-align: super;
+                        }
+                    }
+                    .app {
+                        position: absolute;
+                        right: -78px;
+                        top: 24px;
+                        border: 1px solid $border-gray;
+                        img {
+                            width: 106px;
+                        }
+                    }
+                }
+                dt {
+                    font-size: $small-fontSize * 1.6;
+                    font-weight: 600;
+                    line-height: 1.8;
+                    color: $skyblue;
+                }
+                dd a {
+                    text-align: center;
+                    font-size: $small-fontSize * 1.2;
+                    color: #666666;
+                    line-height: 1.6;
+                    &:hover {
+                        color: #ff2317;
+                    }
+                }
+            }
+        }
+    }
+    .footer-foot {
+        box-sizing: border-box;
+        height: 102px;
+        background-color: $gray;
+        text-align: center;
+        padding-top: 20px;
+        color: $pos-gray;
+        .footer-foot-h {
+            height: 28px;
+            line-height: 28px;
+        }
+        ul {
+            display: inline-block;
+            margin-bottom: 18px;
+            li {
+                padding: 0 21px 0 21px;
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
+        .layui-breadcrumb a:hover {
+            color: $pos-gray !important;
+        }
+        p {
+            font-size: 10px;
+            line-height: 1.5;
+        }
+    }
+}
+
+// aside部分
+.banxin {
+    position: relative;
+    .aside {
+        display: none;
+        position: absolute;
+        top: 188px;
+        right: -78px;
+        border-radius: 12px 12px 0 0;
+        overflow: hidden;
+        .title {
+            background-color: $yellow;
+            font-size: $small-fontSize * 1.4;
+            color: $write;
+            padding: 12px 10px;
+            width: 56px;
+            text-align: center;
+        }
+        .body {
+            font-size: $small-fontSize * 1.4;
+            padding: 0 10px 10px; 
+            background-color: $write;
+            ul {
+                li {
+                    a {
+                        display: inline-block;
+                        width: 100%;
+                    }
+                    padding: 12px 0;
+                    border-bottom: 1px solid $border-gray;
+                    text-align: center;
+                    @extend .point;
+                    &:last-child {
+                        border: 0 none;
+                    }
+                    span {
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        margin-top: 5px;
+                        border-radius: 10px;
+                        color: $write;
+                        line-height: 20px;
+                        background-color: $red;
+                        text-align: center;
+                        font-size: $small-fontSize * 1.2;
+                    }
+                    .layui-icon-top {
+                        font-size: $small-fontSize * 2.4;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 买家导航栏
+.nav {
+    background-color: $write;
+    padding: 18px;
+    li {
+        .chose-this {
+            a {
+                color: $red;
+            }
+        }
+        .all-con {
+            font-weight: 600;
+            &.chose-this {
+                a {
+                    color: $red;
+                    border-bottom: 4px solid $show-yellow;
+                }
+            }
+        }
+        &>a {
+            display: block;
+            font-size: $small-fontSize * 1.5;
+            font-weight: 600;
+            line-height: 2.2;
+            color: $black;
+            padding: 0 12px 0 6px;
+            border-bottom: 1px solid $border-gray;
+            @extend .point;
+            .open {
+                display: inline-block;
+            }
+            .close {
+                display: none;
+                font-size: $small-fontSize;
+                line-height: $small-fontSize * 1.5 * 2.2;
+            }
+        }
+        .open-dl {
+            .open {
+                display: none;
+            }
+            .close {
+                display: inline-block;
+            }
+        }
+        dl {
+            padding-bottom: 20px; 
+            
+            dd {
+                font-size: $small-fontSize * 1.4;
+                line-height: 2.2;
+                margin-left: 6px;
+                a {
+                    color: $black;
+                    display: inline-block;
+                }
+            }
+        }
+
+    }
+}
+
+
+#header{
+    .nav_dir {
+        li {
+            display: none;
+        }
+    }
+    .al-login {
+        display: none;
+    }
+}

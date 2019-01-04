@@ -1,0 +1,248 @@
+@import "./common";
+
+@mixin showNum($top:-5px,$right:-5px) {
+    position: relative;
+    &::before {
+        content: attr(data-shownum);
+        position: absolute;
+        background-color: $red;
+        color: $write;
+        border-radius: 8px;
+        width: 16px;
+        height: 16px;
+        line-height: 1.2;
+        font-size: $small-fontSize;
+        top: $top;
+        right: $right;
+    }
+}
+
+.no-ment { // 未提提单
+    @include img-adr(sub,right,10px);
+}
+.pick-up { // 司机已取卡
+    @include img-adr(sub,right,10px);
+}
+.admission { // 车辆入场
+    @include img-adr(sub,right,10px);
+}
+.alr-ment { // 已提提单
+    @include img-adr(sub,right,10px);
+}
+.all-ment { // 提单总生成
+    @include img-adr(sub,right,10px);
+}
+.futures-con { // 期货合同
+    @include img-adr(bottom,right,10px);
+}
+.stock-con { // 现货合同
+    @include img-adr(bottom,right,10px);
+}
+
+
+.all-bill { // 全部提单
+    @include img-adr(middle,bottom,10px);
+}
+.void-bill { // 已作废
+    @include img-adr(middle,bottom,12px);
+}
+.extract-bill { // 已提
+    @include img-adr(middle,bottom,14px);
+}
+.no-bill { // 未提
+    @include img-adr(middle,bottom,15px);
+}
+// 现货合同
+.part-bill { // 部分生成提单
+    @include img-adr(middle,bottom,10px);
+    @include showNum()
+}
+.notyet-bill { // 未生成提单
+    @include img-adr(middle,bottom,12px);
+    @include showNum()
+}
+.void-billCon { // 作废
+    @include img-adr(middle,bottom,14px);
+    @include showNum($right:6px)
+}
+.settlement-bill { // 已结算
+    @include img-adr(middle,bottom,20px);
+    @include img-adr(middle,top,2px);
+    @include showNum()
+}
+// 期货合同
+.un-paid { // 未付款
+    @include img-adr(middle,bottom,18px);
+    @include img-adr(middle,top,2px);
+    @include showNum()
+}
+.alread-paid { // 已付款
+    @include img-adr(middle,bottom,10px);
+    @include showNum()
+}
+.un-settlement { // 未结算
+    @include img-adr(middle,bottom,18px);
+    @include img-adr(middle,top,2px);
+    @include showNum()
+}
+.settlement-alread { // 已结算
+    @include img-adr(middle,bottom,20px);
+    @include img-adr(middle,top,2px);
+    @include showNum()
+}
+.un-rob { // 未抢单
+    @include img-adr(middle,bottom,15px);
+}
+.alread-rob { // 已抢单
+    @include img-adr(middle,bottom,14px);
+}
+.alread-come { // 已进场
+    @include img-adr(middle,bottom,18px);
+}
+.alread-move { // 车辆出厂
+    @include img-adr(middle,bottom,22px);
+}
+.sure-goods { // 确认收货
+    @include img-adr(middle,bottom,21px);
+}
+.eye { // 资金是否可见
+    @include img-adr(middle,top,6px);
+    @extend .point;
+}
+
+
+[class^="allAbility-body-"],[class*=" allAbility-body-"] {
+    padding: 10px 5px 0;
+    background-color: $write;
+    margin-bottom: 10px;
+    h2 {
+        font-size: $small-fontSize * 1.6;
+        border-bottom: 1px solid $border-gray;
+        color: $black;
+        padding: 4px 36px 14px;
+    }
+    .content {
+        padding: 20px 0;
+        .price-msg {
+            border-right: 1px solid $border-gray;
+            padding: 0 32px 0;
+            &:last-child {
+                border: 0 none;
+            }
+            h4 {
+                padding: 10px 0 0;
+                font-size: $small-fontSize * 1.2;
+                line-height: 1.6;
+                color: $pos-gray;
+            }
+            p {
+                font-size: $small-fontSize * 3;
+                line-height: 1.6;
+                color: $red;
+                @extend .over;
+                span {
+                    color: $skyblue;
+                    font-size: $small-fontSize * 1.2;
+                    margin-right: 10px;
+                    float: right;
+                    @extend .point;
+                }
+            }
+        }
+        .bill-msg {
+            text-align: center;
+            p {
+                font-size: $small-fontSize * 1.4;
+                line-height: 1.6;
+            }
+        }
+        .contract-msg {
+            border-right: 2px solid $border-gray;
+            padding: 0;
+            &:last-child {
+                border: 0 none;
+            }
+            h3 {
+                color: $skyblue;
+                text-align: center;
+                font-size: $small-fontSize * 1.6;
+                line-height: 1.6;
+            }
+            .contract-msg-part {
+                padding-top: 16px;
+                text-align: center;
+                height: 106px;
+                &:last-child {
+                    border: 0 none;
+                }
+                p {
+                    font-size: $small-fontSize*1.3;
+                    line-height: 1.6;
+                }
+            }
+        }
+        .logistics-msg {
+            width: 20%;
+            float: left;
+            text-align: center;
+            p {
+                font-size: $small-fontSize * 1.4;
+                line-height: 1.6;
+            }
+        }
+        .order-msg {
+            border-right: 2px solid $border-gray;
+            padding: 0 58px 20px;
+            &:last-child {
+                border: 0 none;
+            }
+            h3 {
+                color: $black;
+                text-align: center;
+                font-size: $small-fontSize * 1.6;
+                line-height: 1.6;
+                padding-bottom: 10px;
+            }
+            .order-trial-r {
+                text-align: right;
+                span {
+                    max-width: 100px;
+                    @extend .over;
+                }
+            }
+            .order-trial-l {
+                text-align: left;
+            }
+            .order-trial-l,.order-trial-r {
+                p {
+                    font-size: $small-fontSize * 1.3;
+                    line-height: 1.6;
+                    padding-bottom: 10px;
+                    max-width: 300px;
+                    @extend .over;
+                    span {
+                        font-size: $small-fontSize * 1.2;
+                        display: inline-block;
+                        line-height: $small-fontSize * 1.3 * 1.6;
+                        vertical-align: middle;
+                    }
+                    i {
+                        display: inline-block;
+                        background-color: $red;
+                        height: 24px;
+                        line-height: 24px;
+                        width: 56px;
+                        text-align: center;
+                        color: $write;
+                        margin-right: 8px;
+                    }
+                }
+                a {
+                    font-size: $small-fontSize * 1.4;
+                    line-height: 1.6;
+                }
+            }
+        }
+    }
+    
+}

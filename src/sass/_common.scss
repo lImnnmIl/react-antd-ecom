@@ -1,0 +1,140 @@
+
+// 全局变量
+$yellow:#fead37; 
+$show-yellow:#ffd08b; 
+$blue:#318ae4;
+$skyblue:#009aff;
+$li-green:#1dc2b4;
+// $red:#fc2918;
+$red:#ff5122;
+$org:#ff5122;
+$org-light:#ffa12a;
+$write:#fff;
+$black:#333;
+$gray:#f1f1f1; // 背景灰色
+$gray-less:#f9f9f9;
+$gray-line:#c6c6c6;  // 短竖线灰色
+$pos-gray: #999;    // 文字灰
+$border-gray:#eaeaea;  // 边框灰
+$ddd-gray:#ddd;
+$small-fontSize:10px;
+$small-width:12px;
+$dirnmae:"../"; // 路径前缀
+
+
+// 字体颜色
+.red {
+    color: $red;
+}
+.organ {
+    color: $org;
+}
+.write {
+    color: $write;
+}
+.blue {
+    color: $skyblue;
+}
+.black {
+    color: $black;
+}
+.gray {
+   color: $pos-gray; 
+}
+
+.yellow {
+    color: $yellow; 
+ }
+// 星号
+.asterisk {
+    color: $red;
+    font-size: $small-fontSize * 1.6;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+// 混合器  使用方法 @include name（value）
+@mixin logo($w,$h,$x,$y) {
+    width: $w;
+    height: $h;
+    background-position: $x $y;
+    display: inline-block;
+}
+@mixin img-route($lastroute){
+    background-image: url($dirnmae + $lastroute);
+}
+@mixin img-adr($adr,$name,$distance){
+    vertical-align: $adr;
+    margin-#{$name}: $distance;
+}
+
+
+
+
+// 继承
+.over {//文本溢出
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.point{cursor: pointer;}
+.no-chose {
+    -moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+// 公共属性
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,li,ol {list-style:none}
+i,b { font-style: normal;}
+a {text-decoration: none;color:#333; }
+p {
+    margin-bottom: 0;
+}
+.clearfix{zoom:1;
+    &::after{
+        content:"";
+        height: 0;
+        line-height: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+    }
+}
+.fl {float: left;}
+.fr {float: right;}
+body {
+    box-sizing: border-box;
+    min-width: 1394px;
+    font-style: normal;
+    font-size: $small-fontSize;
+    background-color: #fff;
+    font-family: tahoma,arial;
+    color: #333;
+}
+
+@media (max-width: 1920px) {
+    .banxin {
+        width: 1240px;
+        margin: 0 auto;
+    }
+}
+// @media (max-width: 1280px) {
+//     .banxin {
+//         width: 1200px;
+//         margin: 0 auto;
+//     }
+// }
+@media (min-width: 1920px) {
+    .banxin {
+        width: 1240px;
+        margin: 0 auto;
+    }
+}

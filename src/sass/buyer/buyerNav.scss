@@ -1,0 +1,58 @@
+@import "../common";
+
+
+
+
+// 导航栏
+.nav {
+    background-color: $write;
+    padding: 18px;
+    li {
+        &:first-child {
+            .chose-this {
+                a {
+                    color: $red;
+                    border-bottom: 4px solid $show-yellow;
+                }
+            }
+        }
+        dl {
+            padding-bottom: 20px; 
+            .open-dl {
+                .open {
+                    display: none;
+                }
+                .close {
+                    display: inline-block;
+                }
+            }
+            dt {
+                font-size: $small-fontSize * 1.5;
+                line-height: 2.2;
+                color: $black;
+                padding: 0 12px 0 6px;
+                border-bottom: 1px solid $border-gray;
+                @extend .point;
+                .open {
+                    display: inline-block;
+                }
+                .close {
+                    display: none;
+                    font-size: $small-fontSize;
+                    line-height: $small-fontSize * 1.5 * 2.2;
+                }
+            }
+            dd {
+                font-size: $small-fontSize * 1.4;
+                line-height: 2.2;
+                margin-left: 6px;
+                a {
+                    color: $pos-gray;
+                    display: inline-block;
+                }
+            }
+        }
+
+    }
+}
+

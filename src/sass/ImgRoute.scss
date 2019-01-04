@@ -1,0 +1,146 @@
+@import "common";
+
+
+.img-jlt {// 精灵图路径
+    @include img-route("images/img-jlt-sm.png");
+}
+
+.long-sub {// 长条下标
+    @include logo(166px,24px,0 , 0);
+}
+.sub { // 短下标
+    @include logo(115px,17px,-169px , 0);
+}
+.goods-stock { // 现货
+    @include logo(26px,22px,-289px , 0);
+}
+.bill-lading { // 提单
+    @include logo(22px,23px,-162px , -26px);
+}
+.today-resc { // 今日资源
+    @include logo(23px,23px,-188px , -26px);
+}
+.service { // 客服
+    @include logo(22px,24px,-216px , -26px);
+}
+.qr-code { // 二维码
+    @include logo(21px,20px,-245px , -26px);
+}
+.feedback { // 反馈
+    @include logo(19px,18px,-270px , -26px);
+}
+.search { // 搜索
+    @include logo(20px,20px,-294px , -26px);
+}
+.my-ct { // 我的中心
+    @include logo(21px,19px,0 , -26px);
+}
+.business { // 业务跟踪
+    @include logo(16px,18px,-23px, -26px );
+}
+.shopcar-ye { // 购物车
+    @include logo(19px,18px,-42px, -26px );
+}
+.shopcar-re-l { // 购物车
+    @include logo(23px,21px,-63px, -26px );
+}
+.shopcar-re-sm { // 购物车
+    @include logo(20px,16px,-89px, -26px );
+}
+.shopcar-re-r { // 购物车
+    @include logo(23px,21px,-112px, -26px );
+}
+.shopcar-ga-r { // 购物车
+    @include logo(23px,21px,-370px, -69px );
+}
+.attention { // 我的关注
+    @include logo(18px,17px,-140px, -26px );
+}
+.advanced { // 行业领先
+    @include logo(28px,28px,-322px, 0 );
+}
+.high-quality { // 优质
+    @include logo(30px,30px,-356px, 0 );
+}
+.security { // 安全
+    @include logo(27px,32px,-322px, -32px );
+}
+.resources { // 资源
+    @include logo(31px,34px,-357px, -32px );
+}
+.portrait { // 头像
+    @include logo(44px,44px,0px, -52px );
+}
+.hot { // 热销产品
+    @include logo(42px,38px,-288px, -224px );
+}
+.commend { // 推荐产品
+    @include logo(41px,38px,-331px, -224px );
+}
+.homepage { // 主页
+    @include logo(19px,17px,-322px, -68px );
+}
+.all-bill { // 全部提单
+    @include logo(39px,52px,-55px, -52px );
+}
+.void-bill { // 已作废
+    @include logo(45px,50px,-99px, -52px );
+}
+.extract-bill { // 已提
+    @include logo(44px,48px,-148px, -52px );
+}
+.no-bill { // 未提
+    @include logo(42px,47px,-194px, -52px );
+}
+// 现货合同
+.part-bill { // 部分生成提单
+    @include logo(49px,55px,-244px, -52px );
+}
+.notyet-bill { // 未生成提单
+    @include logo(48px,53px,-149px, -110px );
+}
+.void-billCon { // 作废
+    @include logo(46px,51px,-202px, -110px );
+}
+.settlement-bill { // 已结算
+    @include logo(56px,43px,-253px, -110px );
+}
+// 期货合同
+.un-paid { // 未付款
+    @include logo(57px,45px,-315px, -110px );
+}
+.un-settlement { // 未结算
+    @include logo(47px,45px,0, -167px );
+}
+.settlement-alread { // 已结算
+    @include logo(56px,43px,-52px, -167px );
+}
+.un-rob { // 未抢单
+    @include logo(40px,47px,-175px, -167px );
+}
+.alread-rob { // 已抢单
+    @include logo(47px,48px,-324px, -167px );
+}
+.alread-come { // 已进场
+    @include logo(56px,44px,-221px, -167px );
+}
+.alread-move { // 车辆出厂
+    @include logo(65px,40px,0, -224px );
+}
+.sure-goods { // 确认收货
+    @include logo(40px,41px,-281px, -167px );
+}
+
+.eye { // 资金是否可见
+    @include logo(21px,13px,-345px, -69px );
+}
+
+
+.assetDetail-logo { // 资金明细
+    @include logo(42px,42px,-70px, -224px );
+}
+
+
+.date-logo { // 日历图标
+    @include logo(18px,18px,-376px, -93px );
+}
