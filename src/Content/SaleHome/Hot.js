@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import wrapWithLoadData from '../../bottomMethod/wrapWithAxiosData'
 import GoodsImg from '../../module/GoodsImg/GoodsImg';
 import Line from '../../img/line.png';
-import { Spin, Alert } from 'antd';
 
 class Hot extends Component {
     

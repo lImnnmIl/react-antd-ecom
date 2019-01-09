@@ -3,17 +3,19 @@ import ReactDOM from 'react-dom';
 import 'layui-src/dist/css/layui.css';
 import './sass/ImgRoute.scss';
 import './sass/main.scss';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Head from './Header/Head';
 import Foot from './Footer/Foot';
 import SaleHome from './Content/SaleHome/SaleHome';
+import Otherfile from './Content/Otherfile/Otherfile';
 import * as serviceWorker from './serviceWorker';
 
 
 const Body = () => (
     <div>
-        <Head />
-        <Route path="/" component={SaleHome} />
+        <Route path="/ecommerce" component={Head} />
+        <Route path="/ecommerce" exact component={SaleHome} />
+        <Route path="/ecommerce/:topicId" component={Otherfile} />
         <Foot />
     </div>
 );

@@ -2,7 +2,16 @@
 const axios = require('axios');
 
 
+
+const class2type = {};
+
+const toString = class2type.toString;
+
+const hasOwn = class2type.hasOwnProperty;
+
 class Way {
+
+    
 
     transNum(str) {
         let num = Number(str);
@@ -31,12 +40,82 @@ class Way {
         g
     }
 
-    request(requrstData) {
-        axios.post(requrstData.url,requrstData.data={}).then(function (response) {
+    /**
+     * 遍历方法
+     * @param {数组/json} obj 
+     * @param {回调函数} callback 
+     */
+
+    each(obj, callback){
+        var value,
+        i = 0,
+        length = obj.length,
+        isArray = this.isArraylike( obj );
+        if ( isArray ) {
+            for ( ; i < length; i++ ) {
+                value = callback.call( obj[ i ], i, obj[ i ] );
+
+                if ( value === false ) {
+                    break;
+                }
+            }
+        } else {
+            for ( i in obj ) {
+                value = callback.call( obj[ i ], i, obj[ i ] );
+
+                if ( value === false ) {
+                    break;
+                }
+            }
+        }
+    }
+    /**
+     * 
+     * @param {检验对象类型} obj 
+     */
+    type( obj ) {
+		if ( obj == null ) {
+			return obj + "";
+		}
+		return typeof obj === "object" || typeof obj === "function" ?
+			class2type[ toString.call(obj) ] || "object" :
+			typeof obj;
+	}
+
+    isWindow( obj ) {
+		/* jshint eqeqeq: false */
+		return obj != null && obj == obj.window;
+	}
+
+    isArraylike( obj ) {
+        var length = obj.length,
+            type = this.type( obj );
+    
+        if ( type === "function" || this.isWindow( obj ) ) {
+            return false;
+        }
+    
+        if ( obj.nodeType === 1 && length ) {
+            return true;
+        }
+    
+        return type === "array" || length === 0 ||
+            typeof length === "number" && length > 0 && ( length - 1 ) in obj;
+    }
+
+    /**
+     * 请求方法
+     * @param {请求地址} url 
+     * @param {请求参数} data 
+     * @param {成功请求回调函数} yesFn 
+     */
+
+    request({url,data={},yesFn}={}) {
+        axios.post(url,data).then(function (response) {
             if (response.status === 200) {
                 const { data } = response;
-                if (requrstData.yesFn) {
-                    requrstData.yesFn(data);
+                if (yesFn) {
+                    yesFn(data);
                 }
             }
         }).catch(function (error) {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import wrapWithLoadData from '../../bottomMethod/wrapWithAxiosDataPage';
 import '../../sass/retailer/saleHomepage.scss';
 import { Carousel,Tabs  } from 'antd';
 import Content from '../Content';
@@ -13,7 +12,7 @@ import Way from '../../bottomMethod/Way';
 
 
 const TabPane = Tabs.TabPane;
-const way =new Way;
+const $ =new Way();
 
 class SaleHome extends Component {
 
@@ -27,10 +26,10 @@ class SaleHome extends Component {
 
     componentWillMount() {
         const that = this;
-        way.request({url:'/ecommerce/buyer/rest/resource/count', yesFn: function(data){
+        $.request({url:'/ecommerce/buyer/rest/resource/count', yesFn: function(data){
             that.setState({ data : data })
         }})
-        way.request({url:'/ecommerce/buyer/rest/personal/open', yesFn: function(data){
+        $.request({url:'/ecommerce/buyer/rest/personal/open', yesFn: function(data){
             const nowTime = new Date();
             let Time;
             if (nowTime < new Date(data.amStartTime)) {
@@ -52,7 +51,7 @@ class SaleHome extends Component {
                 Time = data.amStartTime;
                 that.setState({ isStart : 0});
             }
-            way.countdown(new Date(Time.replace(/-/g, '/').replace(/T|Z/g, ' ').trim()).getTime(),function(data){
+            $.countdown(new Date(Time.replace(/-/g, '/').replace(/T|Z/g, ' ').trim()).getTime(),function(data){
                 // console.log(data);
                 data.map((v,k)=>{
                     data[k] = v> 9 ? data[k] : `0${data[k]}`

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import GoodsData from './GoodsData';
-import wrapWithLoadData from '../../bottomMethod/wrapWithAxiosDataPage';
-import '../../sass/MyBillData.scss';
+import GoodsData from '../../../module/GoodsData/GoodsData';
+import wrapWithLoadData from '../../../bottomMethod/wrapWithAxiosDataPage';
+import '../../../sass/MyBillData.scss';
 
 
 class MyBillData extends Component {

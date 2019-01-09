@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Portrait from '../../img/portrait.png';
+import { Link } from "react-router-dom";
 
 class CostomMsg extends Component {
     render() {
@@ -16,15 +17,15 @@ class CostomMsg extends Component {
                     </div>
                 </div>
                 <div className="btn">
-                    <a href="/ecommerce/?role=login"> <button type="button" className="layui-btn layui-btn-skyblue layui-btn-sm">登录</button>
-                    </a>
-                    <a href="/ecommerce/?role=register"> <button type="button" className="layui-btn layui-btn-skyblue layui-btn-sm">注册</button>
-                    </a>
+                    <Link to="Login"> <button type="button" className="layui-btn layui-btn-skyblue layui-btn-sm">登录</button>
+                    </Link>
+                    <Link to="Register"> <button type="button" className="layui-btn layui-btn-skyblue layui-btn-sm">注册</button>
+                    </Link>
                 </div>
                 <div className="notice">
                     <div className="title">
                         <span>系统公告</span>
-                        <a href="/ecommerce/?role=notList"><i className="layui-icon layui-icon-next"></i></a>
+                        <Link to="/NotList"><i className="layui-icon layui-icon-next"></i></Link>
                     </div>
                     <ul className="content notice-list">
 
@@ -33,22 +34,22 @@ class CostomMsg extends Component {
             </div>
             <div className="fun layui-row">
                 <div className="layui-col-xs4">
-                    <a href="#">
+                    <Link to="/ecommerce/MyBill">
                         <span className="img-jlt goods-stock"></span>
                         <p>现货合同</p>
-                    </a>
+                    </Link>
                 </div>
                 <div className="layui-col-xs4">
-                    <a href='#'>
+                    <Link to='/ecommerce/MyBill'>
                         <span className="img-jlt bill-lading"></span>
                         <p>我的提单</p>
-                    </a>
+                    </Link>
                 </div>
                 <div className="layui-col-xs4">
-                    <a href="#">
+                    <Link to='/ecommerce/MyBill'>
                         <span className="img-jlt today-resc"></span>
                         <p>今日资源</p>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
