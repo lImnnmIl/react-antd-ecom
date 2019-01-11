@@ -2,59 +2,104 @@ import React, { Component } from 'react';
 import GoodsData from '../../../module/GoodsData/GoodsData';
 import wrapWithLoadData from '../../../bottomMethod/wrapWithAxiosDataPage';
 import '../../../sass/MyBillData.scss';
+import Line from '../../../img/line.png';
 
 
 class MyBillData extends Component {
     constructor() {
         super()
-        this.state = { data: { "billId": 409, "billNo": "BL181114100004", "customerUserId": null, "customerUserName": null, "status": 50, "statusName": null, "commitDate": "2018-11-14 15:28:28", "inFactoryDate": null, "outFactoryDate": "2018-11-14 15:44:51.0", "takeType": null, "destination": null, "carNum": null, "endPlateProvince": null, "endPlateCity": null, "treturnRequestId": null, "approvalData": null, "record": null, "remark": null, "returnRequestData": null, "returnStatus": null, "details": [{ "id": 422, "isFuturesOrder": null, "torderDetailId": null, "tfuturesOrderDetailId": 105, "orderType": "期货合同", "orderNo": "FT181029100003", "orderCommitDate": null, "billNo": null, "status": null, "statusName": null, "name": "带钢", "warehouseId": null, "warehouseName": "成品1库", "specificationsName": "330*2.2", "goodsCode": "DGQ1-Q195-330*2.2", "classificationName": null, "materialName": "Q195", "toWeight": 2.5, "buyWeight": null, "buyNumber": null, "canTakeWeight": null, "canTakeNumber": null, "takeWeight": 22.5, "takeNumber": 9, "actualTakeWeight": 22.5, "actualTakeNumber": 9, "weightUnit": "吨", "basePrice": 3500.0, "diffPrice": 30.0, "freight": 0.0, "price": 3530.0, "quantityUnit": "件", "settlementPath": null, "amountOfMoney": null }, { "id": 423, "isFuturesOrder": null, "torderDetailId": null, "tfuturesOrderDetailId": 111, "orderType": "期货合同", "orderNo": "FT181029100005", "orderCommitDate": null, "billNo": null, "status": null, "statusName": null, "name": "带钢", "warehouseId": null, "warehouseName": "成品1库", "specificationsName": "330*2.2", "goodsCode": "DGQ1-Q195-330*2.2", "classificationName": null, "materialName": "Q195", "toWeight": 2.5, "buyWeight": null, "buyNumber": null, "canTakeWeight": null, "canTakeNumber": null, "takeWeight": 2.5, "takeNumber": 1, "actualTakeWeight": 2.5, "actualTakeNumber": 1, "weightUnit": "吨", "basePrice": 3500.0, "diffPrice": 30.0, "freight": 0.0, "price": 3530.0, "quantityUnit": "件", "settlementPath": null, "amountOfMoney": null }] } }
-    }
-    componentWillMount() {
-        // GoodsData = wrapWithLoadData(GoodsData, '/ecommerce/bill/gets', { "billNo": "", "orderNo": "", "goodsName": "", "status": "", "specificationsName": "", "startDate": "", "endDate": "", "carNum": "", "key": "", "pageSize": 10, "token": "34de01326e639ada4df97f481f61e6b6", "tokenCheck": 1 })
+        this.state = {}
+        this.setRow = this.setRow.bind(this)
     }
 
+
+    setRow(data) {
+        var opera = data.details.length;
+        var op = opera;
+        var rows = 1;
+        if (data.status == "50") {
+            opera = 1;
+            op = data.details.length * 3;
+            rows = 3;
+        }
+        // console.log(op);
+        var num = { opera: opera, op: op, rows: rows };
+        return num;
+    }
+
+
     render() {
-        const { data } = this.props.data && this.props.data != null ? this.props : this.state;
-        const { details } = data;
-        return (
-            <GoodsData >
-                <div>
-                    <p className="fl">提单编号：<span>{data.billNo}</span></p>
-                    <p className="fl">提单时间：<span>{data.commitDate}</span></p>
-                </div>
-                <table>
-                    <tbody>
-                        {details.map((item, k) => (
-                            <tr key={k}>
-                                <td className="conract-goodMsg-td">
-                                    <div className="img layui-input-inline">
-                                        <img src={item.image || '/ecommerce/resource/images/line.png'} alt={item.name} title={item.name} />
-                                        <p className="img-jlt sub layui-row"> <span className="layui-col-xs7 over red" title={item.specificationsName}>{item.specificationsName}</span>
-                                            <span className="layui-col-xs5 over write" title={item.materialName}>{item.materialName}</span>
-                                        </p>
-                                    </div>
-                                    <div className="goods-msg layui-input-inline">
-                                        <p className="layui-row"><span className="layui-col-xs4">品名：</span><span className="layui-col-xs8 over"
-                                            title={item.name}>{item.name}</span></p>
-                                        <p className="layui-row"><span className="layui-col-xs4">材质：</span><span className="layui-col-xs8 over"
-                                            title={item.materialName}>{item.materialName}</span></p>
-                                        <p className="layui-row"><span className="layui-col-xs4">规格：</span><span className="layui-col-xs8 over"
-                                            title={item.specificationsName}>{item.specificationsName}</span></p>
-                                    </div>
-                                </td>
-                                <td className="conract-otherMsg-td">
-                                    <p className="blue" title={item.orderType}>{item.orderType}</p>
-                                    <p className="contractNum-sm gray" title={item.orderNo}>({item.orderNo})</p>
-                                </td>
-                                <td className="conract-otherMsg-td">
-                                    <p className="" title={"￥" + item.price}>￥{item.price}</p>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </GoodsData>
-        );
+        const { data, children } = this.props;
+        return (<div>
+            {data.data ? data.data.map((v, r) => (
+                <GoodsData key={r}>
+                    <div>
+                        <p className="fl">提单编号：<span>{v.billNo}</span></p>
+                        <p className="fl">提单时间：<span>{v.commitDate}</span></p>
+                    </div>
+                    <table>
+                        <tbody>
+                            {v.details.map((item, k) => (
+                                <tr key={k}>
+                                    <td rowSpan={this.setRow(v).rows} className="conract-goodMsg-td">
+                                        <div className="img layui-input-inline">
+                                            <img src={item.image || Line} alt={item.name} title={item.name} />
+                                            <p className="img-jlt sub layui-row"> <span className="layui-col-xs7 over red" title={item.specificationsName}>{item.specificationsName}</span>
+                                                <span className="layui-col-xs5 over write" title={item.materialName}>{item.materialName}</span>
+                                            </p>
+                                        </div>
+                                        <div className="goods-msg layui-input-inline">
+                                            <p className="layui-row"><span className="layui-col-xs4">品名：</span><span className="layui-col-xs8 over"
+                                                title={item.name}>{item.name}</span></p>
+                                            <p className="layui-row"><span className="layui-col-xs4">材质：</span><span className="layui-col-xs8 over"
+                                                title={item.materialName}>{item.materialName}</span></p>
+                                            <p className="layui-row"><span className="layui-col-xs4">规格：</span><span className="layui-col-xs8 over"
+                                                title={item.specificationsName}>{item.specificationsName}</span></p>
+                                        </div>
+                                    </td>
+                                    <td rowSpan={this.setRow(v).rows} className="conract-otherMsg-td">
+                                        <p className="blue" title={item.orderType}>{item.orderType}</p>
+                                        <p className="contractNum-sm gray" title={item.orderNo}>({item.orderNo})</p>
+                                    </td>
+                                    <td rowSpan={this.setRow(v).rows} className="conract-otherMsg-td">
+                                        <p className="" title={"￥" + item.price}>￥{item.price}</p>
+                                    </td>
+                                    <td rowSpan={this.setRow(v).rows} className="conract-otherMsg-td">
+                                        <p title={item.takeNumber + item.quantityUnit + '/' + item.takeWeight + item.weightUnit}>{item.takeNumber}{item.quantityUnit}/{item.takeWeight}{item.weightUnit}</p>
+                                    </td>
+                                    <td rowSpan={this.setRow(v).rows} className="conract-otherMsg-td">
+                                        <p title={item.actualTakeNumber + item.quantityUnit + '/' + item.actualTakeWeight + item.weightUnit}>{item.actualTakeNumber == null ? 0 : item.actualTakeNumber}{item.quantityUnit}/{item.actualTakeWeight == null ? 0 : item.actualTakeWeight}{item.weightUnit}</p>
+                                    </td>
+                                    {k == '0' || v.status == '50' ? <td className="conract-otherMsg-td" rowSpan={this.setRow(v).opera}>{v.status > 59 ? (<p title="/">/</p>) : v.status > 49 ? (<p title="自提">运输方式：自提</p>) : v.status > 19 ? (<div><p title="自提">运输方式：自提</p><p title={(v.endPlateProvince == null ? "" : v.endPlateProvince) + (v.endPlateCity == null ? "" : v.endPlateCity)} >目的地：{v.endPlateProvince == null ? "" : v.endPlateProvince}{v.endPlateCity == null ? "" : v.endPlateCity}</p></div>) : v.status > 9 ? (<p title="/">/</p>) : null}</td> : null}
+                                    {k == '0' ? <td rowSpan={this.setRow(v).op} className="conract-otherMsg-td">{v.status == 10 ? (<div><a href="javascript:void(0)" className="blue send-logistics">发送物流</a><br /><a href="javascript:void(0)" className="blue delete-bill">撤销提单</a></div>) : v.status > 9 && v.status < 35 ? (v.status > 20 ? <a href="javascript:void(0)" className="yellow look-car">查看配车</a> : null) : v.status > 20 && v.status < 70 ? <a href="javascript:void(0)" className="yellow look-car">查看配车</a> : null}</td> : null}
+                                </tr>
+
+
+                            ))}
+                            {
+                                v.status == '50' ? (
+                                    <tr>
+                                        <td className="conract-otherMsg-td">
+                                            <p title={(v.endPlateProvince == null ? "" : v.endPlateProvince) + (v.endPlateCity == null ? "" : v.endPlateCity)}>目的地：{ v.endPlateProvince == null ? "" : v.endPlateProvince}{v.endPlateCity == null ? "" : v.endPlateCity }</p>
+                                        </td>
+                                    </tr>) : null
+                            }
+
+                            {
+                                v.status == '50' ? (
+                                    <tr>
+                                        <td className="conract-otherMsg-td">
+                                            <a href="javascript:void(0)" className="yellow look-detail">查看详情</a>
+                                        </td>
+                                    </tr>) : null
+                            }
+                        </tbody>
+                    </table>
+                </GoodsData>)) : null}
+            <div id="bid_Page" className="bid-page">
+                {children}
+            </div>
+        </div>)
     }
 }
 

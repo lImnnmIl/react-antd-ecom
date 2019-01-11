@@ -5,12 +5,10 @@ import '../../sass/GoodsData.scss';
 class GoodsData extends Component {
     constructor() {
         super()
-        this.state = { data: { pageNum: null } }
+        this.state = { data: null }
     }
     render() {
-        const { data } = this.props.data && this.props.data != null ? this.props : this.state;
         const { children } = this.props;
-        console.log(data)
         return (
             <div className="conract-Lis-detali">
                 <div className="conract-Lis-detali-top clearfix">

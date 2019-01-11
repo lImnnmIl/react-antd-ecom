@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Way from './Way';
 
 
-const $ =new Way();
+const $ = new Way();
 // const axios = require('axios');
 
 export default (WrappedComponent, successFn) => {
@@ -12,14 +12,13 @@ export default (WrappedComponent, successFn) => {
             this.state = { data: null }
         }
 
-        componentWillMount() {
-            console.log(this.props);
+        componentDidMount() {
             const { address, parameter, successFn } = this.props;
             const that = this;
             $.request({
-                url:address,
-                data:parameter,
-                yesFn:function(data){
+                url: address,
+                data: parameter,
+                yesFn: function (data) {
                     that.setState({ data })
                     if (successFn) {
                         successFn(data);
@@ -42,8 +41,25 @@ export default (WrappedComponent, successFn) => {
             // });
         }
 
+        componentWillReceiveProps(nextProps) {
+            if (JSON.stringify(nextProps) !== JSON.stringify(this.props)) {
+                const { address, parameter, successFn } = this.props;
+                const that = this;
+                $.request({
+                    url: address,
+                    data: parameter,
+                    yesFn: function (data) {
+                        that.setState({ data })
+                        if (successFn) {
+                            successFn(data);
+                        }
+                    }
+                })
+            }
+        }
+
         render() {
-            return <WrappedComponent parent={this.props} data={this.state.data} />
+            return this.state.data ? (<WrappedComponent parent={this.props} data={this.state.data} />) : null
         }
     }
     return NewComponent

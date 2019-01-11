@@ -72,7 +72,7 @@ class GoodsList extends Component {
                     </td>
                     <td className="spot-long tab-good"><span  data-id={v.goodsId}  data-detail='{{JSON.stringify(v)}}' data-material={ v.materialName||''} className="img-jlt shopcar-re-r point add-futugoods"></span><a href={`?role=futusettlements&ids=${v.goodsId}`} className="layui-btn layui-btn-yellow layui-btn-sm">立即购买</a> </td>
                 </tr>
-            )) : ''}
+            )) : null}
             </tbody>
         </table>
         <div id="bid_Page" className="bid-page">

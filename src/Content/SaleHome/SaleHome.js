@@ -5,9 +5,8 @@ import Content from '../Content';
 import CostomMsg from './CostomMsg';
 import Hot from './Hot';
 import Recommend from './Recommend';
+import CountDown from './CountDown';
 import GoodsList from './GoodsList';
-import Time from '../../img/time.png';
-import TimeStart from '../../img/timeStart.png';
 import Way from '../../bottomMethod/Way';
 
 
@@ -24,40 +23,11 @@ class SaleHome extends Component {
                     } 
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const that = this;
+        // console.log(this)
         $.request({url:'/ecommerce/buyer/rest/resource/count', yesFn: function(data){
             that.setState({ data : data })
-        }})
-        $.request({url:'/ecommerce/buyer/rest/personal/open', yesFn: function(data){
-            const nowTime = new Date();
-            let Time;
-            if (nowTime < new Date(data.amStartTime)) {
-                Time = data.amStartTime;
-                that.setState({ isStart : 0});
-            } else if (data.amEndTime == data.pmStartTime) {
-                Time = data.pmEndTime;
-                that.setState({ isStart : 1});
-            } else if (nowTime > new Date(data.amStartTime) && nowTime < new Date(data.amEndTime)) {
-                Time = data.amEndTime;
-                that.setState({ isStart : 1});
-            } else if (nowTime > new Date(data.amEndTime) && nowTime < new Date(data.pmStartTime)) {
-                Time = data.pmStartTime;
-                that.setState({ isStart : 0});
-            } else if (nowTime > new Date(data.pmStartTime) && nowTime < new Date(data.pmEndTime)) {
-                Time = data.pmEndTime;
-                that.setState({ isStart : 1});
-            } else {
-                Time = data.amStartTime;
-                that.setState({ isStart : 0});
-            }
-            $.countdown(new Date(Time.replace(/-/g, '/').replace(/T|Z/g, ' ').trim()).getTime(),function(data){
-                // console.log(data);
-                data.map((v,k)=>{
-                    data[k] = v> 9 ? data[k] : `0${data[k]}`
-                })
-                that.setState({ Time : data })
-            })
         }})
     }
     render(){
@@ -77,14 +47,7 @@ class SaleHome extends Component {
                 </div>
                 <div>
                     <div className="subject layui-row">
-                        <div className="layui-col-xs2 count">
-                            <img src={this.state.isStart?Time:TimeStart} alt="" />
-                            <div className="count-down layui-row">
-                                <span className="layui-col-xs4">{this.state.Time[1]}</span>
-                                <span className="layui-col-xs4">{this.state.Time[2]}</span>
-                                <span className="layui-col-xs4">{this.state.Time[3]}</span>
-                            </div>
-                        </div>
+                        <CountDown />
                         <div className="layui-col-xs10">
                             <Carousel dots='false'>     
                                 <div className="layui-row hot-list">

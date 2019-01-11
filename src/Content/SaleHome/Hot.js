@@ -8,7 +8,7 @@ class Hot extends Component {
     render() {
         const { data } = this.props;
         return (
-            data ? data.map((v, k) => (<div key={k} className="layui-col-xs3"><GoodsImg key={k} data={v} src={Line} hot={1}/></div>)) : ''
+            data ? data.map((v, k) => (<div key={k} className="layui-col-xs3"><GoodsImg key={k} data={v} src={Line} hot={1}/></div>)) : null
         );
     }
 }
