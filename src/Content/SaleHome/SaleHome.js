@@ -26,7 +26,7 @@ class SaleHome extends Component {
     componentDidMount() {
         const that = this;
         // console.log(this)
-        $.request({url:'/ecommerce/buyer/rest/resource/count', yesFn: function(data){
+        $.request({url:'/ecommerce/resource/count', yesFn: function(data){
             that.setState({ data : data })
         }})
     }
@@ -39,7 +39,7 @@ class SaleHome extends Component {
                         <h4>为您推荐</h4>
                         <div>
                             <Recommend 
-                                address="/ecommerce/buyer/rest/resource/recommend"
+                                address="/ecommerce/resource/recommend"
                                 parameter={{}}
                             />
                         </div>
@@ -52,7 +52,7 @@ class SaleHome extends Component {
                             <Carousel dots='false'>     
                                 <div className="layui-row hot-list">
                                     <Hot 
-                                        address="/ecommerce/buyer/rest/resource/hot"
+                                        address="/ecommerce/resource/hot"
                                         parameter={{pageSize:4}}
                                     />
                                 </div>
@@ -64,7 +64,7 @@ class SaleHome extends Component {
                             <TabPane tab={<span>期货资源<span>（{this.state.data.futuresNum}条）</span></span>} key="1">
                                 <div className="goods-msg">
                                     <GoodsList
-                                        address="/ecommerce/buyer/rest/resource/gets"
+                                        address="/ecommerce/resource/gets"
                                         parameter={{"type":2,"classificationId":"","warehouseId":"","regionId":"","pageSize":10,"orderBy":"fgsi.materialName asc","materialName":""}}
                                     />
                                 </div>
@@ -72,7 +72,7 @@ class SaleHome extends Component {
                             <TabPane tab={<span>现货资源<span>（{this.state.data.actualsNum}条）</span></span>} key="2">
                                 <div className="goods-msg">
                                     <GoodsList
-                                        address="/ecommerce/buyer/rest/resource/gets"
+                                        address="/ecommerce/resource/gets"
                                         parameter={{"type":1,"classificationId":"","warehouseId":"","regionId":"","pageSize":10,"orderBy":"m.name asc","materialName":""}}
                                         type={1}
                                     />

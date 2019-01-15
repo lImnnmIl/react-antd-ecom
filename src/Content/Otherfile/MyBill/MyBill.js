@@ -15,6 +15,7 @@ const Option = Select.Option;
  * @param {*} props 
  */
 const operations = (props) => (<Search
+    allowClear 
     placeholder={props.searchCon}
     style={{ display: 'inline-block', marginTop: '5px', marginRight: '40px' }}
     onSearch={value => (
@@ -69,13 +70,13 @@ class MoreSearch extends Component {
                             label="合同编号"
                         >
                             {getFieldDecorator('orderNo', {
-                                rules: [{
-                                    type: 'email', message: 'The input is not valid E-mail!',
-                                }, {
-                                    required: true, message: 'Please input your E-mail!',
-                                }],
+                                // rules: [{
+                                //     type: 'email', message: 'The input is not valid E-mail!',
+                                // }, {
+                                //     required: true, message: 'Please input your E-mail!',
+                                // }],
                             })(
-                                <Input placeholder="请输入合同编号" />
+                                <Input placeholder="请输入合同编号" allowClear />
                             )}
                         </Form.Item>
                     </Col>
@@ -111,7 +112,7 @@ class MoreSearch extends Component {
                         >
                             {getFieldDecorator('goodsName', {
                             })(
-                                <Input placeholder="请输入商品名称" />
+                                <Input placeholder="请输入商品名称" allowClear />
                             )}
                         </Form.Item>
                     </Col>
@@ -122,7 +123,7 @@ class MoreSearch extends Component {
                         >
                             {getFieldDecorator('specificationsName', {
                             })(
-                                <Input placeholder="请输入规格型号" />
+                                <Input placeholder="请输入规格型号" allowClear />
                             )}
                         </Form.Item>
                     </Col>
@@ -133,7 +134,7 @@ class MoreSearch extends Component {
                         >
                             {getFieldDecorator('carNum', {
                             })(
-                                <Input placeholder="请输入车牌号" />
+                                <Input placeholder="请输入车牌号" allowClear />
                             )}
                         </Form.Item>
                     </Col>
@@ -158,9 +159,7 @@ class MyBill extends Component {
         this.state = {
             data: {
                 field: {
-                    pageSize: 10,
-                    token: '9555270ee6011da371d63f93064c6f5a',
-                    tokenCheck: 1,
+                    pageSize: 10
                 }
             },
             isMore: false
@@ -185,12 +184,17 @@ class MyBill extends Component {
     moreFn() {
         this.setState({ isMore: !this.state.isMore })
     }
+    handleClikeData(e){
+        console.log(e)
+        console.log(e.target)
+        console.log(e.target.dataset.id)
+    }
     render() {
 
         return (
             <div>
                 <PageTitle title={'我的提单'}>
-                    <button className="layui-btn layui-btn-primary layui-border-skyblue layui-btn-sm fr layui-btn-radius addBill">添加提单</button>
+                    <button onClick={this.handleClikeData.bind(this)} className="layui-btn layui-btn-primary layui-border-skyblue layui-btn-sm fr layui-btn-radius addBill" data-id="123" >添加提单</button>
                 </PageTitle>
                 <div className="account-content">
                     <Tabs style={{ padding: '0 20px' }} tabBarExtraContent={operations({ searchCon: '商品名称/合同号/合同状态', searchFn: this.searchFn.bind(this), moreFn: this.moreFn.bind(this) })}>
@@ -211,8 +215,9 @@ class MyBill extends Component {
                             </div>
                             <div className="contract-Msg-content" id="contract-Msg-content">
                                 <MyBillData
-                                    address="/ecommerce/buyer/rest/bill/gets"
+                                    address="/ecommerce/bill/gets"
                                     parameter={this.state.data.field}
+                                    token={1}
                                 />
                             </div>
                         </TabPane>

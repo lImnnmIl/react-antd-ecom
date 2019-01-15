@@ -17,7 +17,7 @@ class CountDown extends Component {
     componentDidMount() {
         const that = this;
         $.request({
-            url: '/ecommerce/buyer/rest/personal/open', yesFn: function (data) {
+            url: '/ecommerce/personal/open', yesFn: function (data) {
                 const nowTime = new Date();
                 let Time;
                 if (nowTime < new Date(data.amStartTime)) {

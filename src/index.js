@@ -6,6 +6,7 @@ import './sass/main.scss';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Head from './Header/Head';
 import Foot from './Footer/Foot';
+import Login from './Content/Otherfile/Login/Login';
 import SaleHome from './Content/SaleHome/SaleHome';
 import Otherfile from './Content/Otherfile/Otherfile';
 import * as serviceWorker from './serviceWorker';
@@ -13,7 +14,8 @@ import * as serviceWorker from './serviceWorker';
 
 const Body = () => (
     <div>
-        <Route path="/ecommerce" component={Head} />
+        <Head />
+        <Route path="/Login" exact component={Login} />
         <Route path="/ecommerce" exact component={SaleHome} />
         <Route path="/ecommerce/:topicId" component={Otherfile} />
         <Foot />
@@ -23,7 +25,7 @@ class Main extends Component {
     render() {
         return (
             <Router>
-                <Route path="/ecommerce" component={Body} />
+                <Route path="/" component={Body} />
             </Router>
         );
     }

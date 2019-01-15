@@ -4,7 +4,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
-    "antd": "^3.10.0",
+    "antd": "^3.12.1",
     "axios": "^0.18.0",
     "babel-plugin-import": "^1.9.1",
     "layui-src": "^2.3.0",
@@ -25,7 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://47.104.13.67:8084",
+  "proxy": "http://47.104.13.67",
   "browserslist": [
     ">0.2%",
     "not dead",

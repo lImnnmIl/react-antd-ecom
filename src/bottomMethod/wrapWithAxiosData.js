@@ -13,11 +13,12 @@ export default (WrappedComponent, successFn) => {
         }
 
         componentDidMount() {
-            const { address, parameter, successFn } = this.props;
+            const { address, parameter, token, successFn } = this.props;
             const that = this;
             $.request({
                 url: address,
                 data: parameter,
+                token: token,
                 yesFn: function (data) {
                     that.setState({ data })
                     if (successFn) {
@@ -43,11 +44,12 @@ export default (WrappedComponent, successFn) => {
 
         componentWillReceiveProps(nextProps) {
             if (JSON.stringify(nextProps) !== JSON.stringify(this.props)) {
-                const { address, parameter, successFn } = this.props;
+                const { address, parameter,token, successFn } = this.props;
                 const that = this;
                 $.request({
                     url: address,
                     data: parameter,
+                    token: token,
                     yesFn: function (data) {
                         that.setState({ data })
                         if (successFn) {

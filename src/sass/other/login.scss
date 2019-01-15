@@ -1,12 +1,12 @@
 @import "../layui-custom";
 // header修改
-#header {
-    .nav_dir {
-        .login-re {
-            display: inline-block;
-        }
-    }
-}
+// #header {
+//     .nav_dir {
+//         .login-re {
+//             display: inline-block;
+//         }
+//     }
+// }
 #footer {
     .footer-head,.footer-body {
         display: none;
@@ -16,7 +16,6 @@
 // main部分
 .main {
     min-height: 700px;
-    @include img-route("images/login.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     .banxin {
@@ -27,7 +26,6 @@
             top: 100px;
             padding: 6px 36px;
             background-color: $write;
-            width: 430px;
             border-top: 5px solid $org;
             .title {
                 padding: 10px 0 20px 0;
@@ -86,3 +84,12 @@
 
     }
 }
+#components-form-demo-normal-login .login-form {
+    max-width: 300px;
+  }
+  #components-form-demo-normal-login .login-form-forgot {
+    float: right;
+  }
+  #components-form-demo-normal-login .login-form-button {
+    width: 100%;
+  }

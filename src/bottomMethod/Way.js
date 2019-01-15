@@ -13,6 +13,17 @@ class Way {
 
     
 
+    /**
+     * 数据存储到sessionStorage
+     * @param {json} data
+     */
+
+    setSession(data){
+        this.each(data,function(k,v){
+            sessionStorage.setItem(k,v);
+        })
+    }
+    
     transNum(str) {
         let num = Number(str);
         if (isNaN(num)) {
@@ -110,7 +121,11 @@ class Way {
      * @param {成功请求回调函数} yesFn 
      */
 
-    request({url,data={},yesFn}={}) {
+    request({url,data={},token,yesFn}={}) {
+        if(token){
+            data.token = sessionStorage.getItem('token');
+            data.tokenCheck = '1'
+        }
         axios.post(url,data).then(function (response) {
             if (response.status === 200) {
                 const { data } = response;

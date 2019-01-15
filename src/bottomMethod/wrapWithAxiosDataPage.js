@@ -13,11 +13,12 @@ export default (WrappedComponent, successFn) => {
             this.state = { data: { data: null }, prevProps: null }
         }
         componentDidMount() {
-            const { address, parameter, successFn } = this.props;
+            const { address, parameter, token, successFn } = this.props;
             const that = this;
             $.request({
                 url: address,
                 data: parameter,
+                token: token,
                 yesFn: function (data) {
                     that.setState({ data })
                     if (successFn) {
@@ -86,11 +87,12 @@ export default (WrappedComponent, successFn) => {
 
         componentDidUpdate(prevProps, prevState, snapshot) {
             if (this.state.data === null) {
-                const { address, parameter, successFn } = this.props;
+                const { address, parameter, token, successFn } = this.props;
                 const that = this;
                 $.request({
                     url: address,
                     data: parameter,
+                    token: token,
                     yesFn: function (data) {
                         that.setState({ data })
                         if (successFn) {
@@ -169,8 +171,10 @@ export default (WrappedComponent, successFn) => {
                         <WrappedComponent parent={this.props} data={this.state.data} >
                             <Pagination
                                 showQuickJumper
-                                defaultCurrent={1}
-                                defaultPageSize={10}
+                                showSizeChanger
+                                size='small'
+                                defaultCurrent={this.state.data.pageNum}
+                                defaultPageSize={this.state.data.pageSize}
                                 total={this.state.data.total}
                                 onChange={this.onChange.bind(this)}
                                 onShowSizeChange={this.onShowSizeChange.bind(this)}
