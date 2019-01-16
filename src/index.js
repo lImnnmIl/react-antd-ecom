@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'layui-src/dist/css/layui.css';
 import './sass/ImgRoute.scss';
 import './sass/main.scss';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Head from './Header/Head';
 import Foot from './Footer/Foot';
 import Login from './Content/Otherfile/Login/Login';
@@ -17,7 +17,21 @@ const Body = () => (
         <Head />
         <Route path="/Login" exact component={Login} />
         <Route path="/ecommerce" exact component={SaleHome} />
-        <Route path="/ecommerce/:topicId" component={Otherfile} />
+        <Route
+            path="/ecommerce/:topicId"
+            render={props => (
+                sessionStorage.getItem('token') ? (
+                    <Otherfile {...props} />
+                ) : (
+                        <Redirect
+                            to={{
+                                pathname: "/Login",
+                                state: { from: props.location }
+                            }}
+                        />
+                    )
+            )}
+        />
         <Foot />
     </div>
 );

@@ -21,6 +21,7 @@ class LoginForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const { parname } = this.props
         const that = this
         this.props.form.validateFields((err, values) => {
             if (!err) {
@@ -36,7 +37,7 @@ class LoginForm extends Component {
                             delete data.code
                             delete data.message
                             $.setSession(data)
-                            window.location.href = '/ecommerce';
+                            window.location.href = parname.pathname;
                         } else {
                             message.error(data.message);
                             that.setState({ time: new Date().getTime() })
@@ -49,7 +50,6 @@ class LoginForm extends Component {
     handleClick() {
         this.setState({ time: new Date().getTime() })
     }
-
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
@@ -108,13 +108,14 @@ const WrappedNormalLoginForm = Form.create({ name: 'login' })(LoginForm);
 class Login extends Component {
 
     render() {
-
+        let { from } = this.props.location.state ? this.props.location.state : { from: { pathname: "/ecommerce" } };
+        console.log(from)
         return (
             <div className="main" style={{ backgroundImage: 'url(' + BgImg + ')' }}>
                 <div className="banxin">
                     <div className="login">
                         <div id="components-form-demo-normal-login">
-                            <WrappedNormalLoginForm />
+                            <WrappedNormalLoginForm parname={from} />
                         </div>
                     </div>
                 </div>
