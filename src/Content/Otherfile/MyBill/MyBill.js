@@ -15,12 +15,16 @@ const Option = Select.Option;
  * @param {*} props 
  */
 const operations = (props) => (<Search
-    allowClear 
+    allowClear
     placeholder={props.searchCon}
     style={{ display: 'inline-block', marginTop: '5px', marginRight: '40px' }}
     onSearch={value => (
         props.searchFn ? props.searchFn(value) : null
     )}
+    onChange={e => (
+        props.changeFn ? props.changeFn(e) : null
+    )
+    }
     addonAfter={(<div onClick={props.moreFn ? props.moreFn : null}>
         <span style={{ display: 'inline-block', marginRight: '5px' }}>高级</span>
         <Icon type="down" />
@@ -47,7 +51,7 @@ class MoreSearch extends Component {
     handleSearch = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-            if(!err){
+            if (!err) {
                 if (this.props.onSubmit) {
                     this.props.onSubmit(values)
                 }
@@ -162,16 +166,15 @@ class MyBill extends Component {
                     pageSize: 10
                 }
             },
-            isMore: false
+            isMore: false,
+            timer: null
         }
     }
 
     SubmitMoreSearch(searchs) {
-        if (this.state.billNo) {
-            searchs.billNo = this.state.billNo
-        }
         const { data } = this.state;
-        data.field = {...searchs,...data.field} 
+        data.field.billNo = this.state.data.billNo
+        data.field = { ...searchs, ...data.field }
         this.setState({ data })
     }
 
@@ -181,10 +184,22 @@ class MyBill extends Component {
         data.field.billNo = value
         this.setState({ data })
     }
+    changeFn(e) {
+        let { timer, data } = this.state;
+        const { value } = e.target;
+        timer&&clearTimeout(this.state.timer)
+        const that = this;
+        timer = setTimeout(function () {
+            console.log(that.state)
+            data.billNo = value;
+            that.setState({ data })
+        }, 200)
+        this.setState({ timer })
+    }
     moreFn() {
         this.setState({ isMore: !this.state.isMore })
     }
-    handleClikeData(e){
+    handleClikeData(e) {
         console.log(e)
         console.log(e.target)
         console.log(e.target.dataset.id)
@@ -197,7 +212,7 @@ class MyBill extends Component {
                     <button onClick={this.handleClikeData.bind(this)} className="layui-btn layui-btn-primary layui-border-skyblue layui-btn-sm fr layui-btn-radius addBill" data-id="123" >添加提单</button>
                 </PageTitle>
                 <div className="account-content">
-                    <Tabs style={{ padding: '0 20px' }} tabBarExtraContent={operations({ searchCon: '商品名称/合同号/合同状态', searchFn: this.searchFn.bind(this), moreFn: this.moreFn.bind(this) })}>
+                    <Tabs style={{ padding: '0 20px' }} tabBarExtraContent={operations({ searchCon: '商品名称/合同号/合同状态', searchFn: this.searchFn.bind(this), changeFn: this.changeFn.bind(this), moreFn: this.moreFn.bind(this) })}>
                         <TabPane tab={`全部提单`} key="1">
                             <div className="moreSearch" style={{ display: this.state.isMore ? 'block' : 'none', padding: '10px' }}>
                                 <MoreSearchForm onSubmit={this.SubmitMoreSearch.bind(this)} />
