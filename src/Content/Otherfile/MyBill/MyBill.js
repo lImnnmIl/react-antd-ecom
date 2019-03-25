@@ -4,6 +4,9 @@ import { Tabs, Input, Form, Icon, Row, Col, Button, Select } from 'antd';
 import MyBillData from './MyBillData';
 import '../../../sass/GoodsImg.scss';
 import '../../../sass/buyer/myBill.scss';
+import Way from '../../../bottomMethod/Way';
+
+const $ = new Way();
 
 
 const TabPane = Tabs.TabPane;
@@ -230,7 +233,7 @@ class MyBill extends Component {
                             </div>
                             <div className="contract-Msg-content" id="contract-Msg-content">
                                 <MyBillData
-                                    address="/ecommerce/bill/gets"
+                                    address={$.billGets}
                                     parameter={this.state.data.field}
                                     token={1}
                                 />

@@ -30,7 +30,7 @@ class LoginForm extends Component {
                 delete values.remember
                 // console.log('Received values of form: ', values);
                 $.request({
-                    url: '/ecommerce/user/login',
+                    url: $.login,
                     data: values,
                     yesFn: function (data) {
                         if (data.code == 1 || data.code == 3) {
@@ -78,7 +78,7 @@ class LoginForm extends Component {
                                 <Input placeholder="验证码" />
                             </Col>
                             <Col span={11} offset={1}>
-                                <img onClick={this.handleClick.bind(this)} src={`http://47.104.13.67/ecommerce/captcha/img/get?verifyKey=${this.state.time}`} />
+                                <img onClick={this.handleClick.bind(this)} src={$.imgUrl + this.state.time} />
                             </Col>
                         </Row>
                     )}

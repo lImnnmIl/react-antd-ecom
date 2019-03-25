@@ -67,7 +67,7 @@ class TopMsg extends Component {
     }
     handleLoginOutSure() {
         $.request({
-            url: '/ecommerce/user/logout',
+            url: $.logout,
             token: 1,
             yesFn: function (data) {
                 sessionStorage.clear();

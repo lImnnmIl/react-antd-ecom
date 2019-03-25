@@ -11,7 +11,18 @@ const hasOwn = class2type.hasOwnProperty;
 
 class Way {
 
-    
+    constructor() {
+        this.ip  = ''
+        this.imgUrl = 'http://ds.donghaigangtie.com/ecommerce/captcha/img/get?verifyKey='   //验证码图片地址
+        this.hot = this.ip + '/ecommerce/resource/hot'                    //热销资源
+        this.recommend = this.ip + '/ecommerce/resource/recommend'        //推荐资源
+        this.count = this.ip + '/ecommerce/resource/count'                //商品统计数量
+        this.dataGets = this.ip + '/ecommerce/resource/gets'              //资源信息
+        this.open = this.ip + '/ecommerce/personal/open'                  //获取开闭市时间
+        this.login = this.ip + '/ecommerce/user/login'                    //登录
+        this.logout = this.ip + '/ecommerce/user/logout'                  //登出
+        this.billGets = this.ip + "/ecommerce/bill/gets"                  //获取订单资源
+    }
 
     /**
      * 数据存储到sessionStorage
